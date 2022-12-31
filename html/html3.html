@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html第三节</title>
+</head>
+<body>
+    <!-- form 块级元素 block element
+    form属性:
+    method="get|post" 提交方法
+    action=""  提交给后端的路径
+
+    input 内联块级 inline-block element 
+    属性
+    type="text|password|submit" 
+    maxlength="5"  设置最大输入字符
+    name="username" 提交数据用，数据名称 -->
+
+    <!-- 提交数据的两大要素：
+      数据名称
+      数据名称所对应的值
+      ?username=哈哈&password=1223455 -->
+    
+    <form action="">
+        <p>
+            用户名：<input type="text" name="username" value="" maxlength="5"/>
+        </p>
+        <p>
+            密码：<input type="password" name="password" value=""/>
+        </p>
+        <p>
+            <input type="submit" value="登录">
+        </p>
+    </form>
+    
+    <!-- label标签    内联元素  inline element 
+    label的for属性值与某一个input的id值相同时,点击label可以聚焦该input输入框 -->
+    
+    <!-- input
+    id 给label的for属性使用 
+    readonly="readonly" 只读属性
+    disabled="disabled" 禁用属性
+    placeholder="请输入用户名" ：placeholder 一般对样式要求比较高，需要动态渲染的时候，用js去模拟placeholder
+    -->
+    <!-- readonly和disabled的区别
+    readonly:是只读属性
+        不可输入
+        但提交时还是会将数据正常提交
+    disabled:是禁用属性
+        不可输入
+        但提交数据时它将不提交数据 -->
+        
+    <!-- md5加密概念:
+      消息摘要的算法5
+      1.不可逆加密算法
+      2.只要加密了就不可以再解密
+      3.这种加密方式不需要提供额外的密钥的 -->
+    
+
+    <form action="get">
+        <p>
+            <label for="username">用户名</label>
+            <input type="text" id="username" name="username" disabled="disabled" value="123">
+        </p>
+    </form>
+
+    <!-- 单选按钮 
+      通过相同的name去统一,形成单选 -->
+    <form method="get" action="">
+        <input type="radio" id="male" name="sex" value="male" checked="checked">
+        <label for="male">男士</label>
+        <input type="radio" id="female" name="sex" value="female">
+        <label for="female">女士</label>
+        <br/>
+        <input type="submit" value="提交"/>
+    </form>
+
+    <!-- 多选 checkbox -->
+    <form action="" method="get">
+        <h5>你喜欢的编程语言</h5>
+        <p>
+            <input type="checkbox" id="js" name="myLike" value="javascript"/>
+            <label for="js">javaScript</label>
+        </p>
+        <p>
+            <input type="checkbox" id="java" name="myLike" value="java"/>
+            <label for="java">JAVA</label>
+        </p>
+        <p>
+            <input type="checkbox" id="php" name="myLike" value="php"/>
+            <label for="php">PHP</label>
+        </p>
+        <p>
+            <input type="checkbox" id="python" name="myLike" value="python"/>
+            <label for="python">Python</label>
+        </p>
+        <br/>
+        <input type="submit" value="提交"/>
+    </form>
+
+    <!-- select 下拉菜单 -->
+    <form action="" method="get">
+        <select name="lang" id="">
+            <option value="">请选择</option>
+            <option value="js">javaScript</option>
+            <option value="java">JAVA</option>
+            <option value="php">PHP</option>
+            <option value="python">Python</option>
+        </select>
+        <input type="submit" value="提交"/>
+    </form>
+
+    <!-- textarea 多行文本框
+    textarea标签中间不可以空格或换行 :原因: textarea的文本是在双标签中间的,换行和空格相当于占了它的字符显示，所以会有空格
+    cols 可见宽度: 8px(每个英文字符占的宽度) * cols(自己设置的cols) + 17px(滚动条宽度) 宋体字计算
+    rows 可见行数:  -->
+    <form action="" method="get">
+        <textarea name="" id="" cols="30" rows="20" placeholder="请输入文本"></textarea>
+        <br/>
+        <input type="submit" value="提交"/>
+    </form>
+
+    fieldset legend 
+    fieldset block element 块级元素
+    legend   block element 块级元素
+
+    <form action="" method="get">
+        <fieldset>
+            <legend>用户登录</legend>
+            <p>
+                <label for="username">用户名</label>
+                <input type="text" id="username" placeholder="用户名"/>
+            </p>
+            <p>
+                <label for="password">密码</label>
+                <input type="password" id="password" placeholder="密码"/>
+            </p>
+            <p>
+                <input type="submit" value="提交" />
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>用户注册</legend>
+            <p>
+                <label for="username">用户名</label>
+                <input type="text" id="username" placeholder="用户名"/>
+            </p>
+            <p>
+                <label for="password">密码</label>
+                <input type="password" id="password" placeholder="密码"/>
+            </p>
+            <p>
+                <label for="Popassword">确认密码</label>
+                <input type="password" id="Popassword" placeholder="确认密码"/>
+            </p>
+            <p>
+                <input type="submit" value="提交" />
+            </p>
+        </fieldset>
+    </form>
+
+    <!-- 小案例 输入请输入关键字有bug，但是没必要处理，没有安全性影响-->
+    <!-- <form method="get" action="">
+        <input type="text" value="请输入关键字"
+        onfocus="focusInput(this)"
+        onblur="blurInput(this)"
+        >
+    </form>
+    <script type="text/javaScript">
+         function focusInput(obj) {
+            if(obj.value==='请输入关键字'){
+                obj.value=''
+            }
+         }
+         function blurInput(obj) {
+            if(obj.value===''){
+                obj.value='请输入关键字'
+            }
+        }
+    </script> -->
+    
+</body>
+</html>
