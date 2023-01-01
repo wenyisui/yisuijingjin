@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css第一节</title>
+    <link rel="stylesheet" type="text/css" href="./index.css">
+    <style type="text/css">
+       [type="username"] {
+          width: 100px;
+       }
+       [type="password"] {
+          width: 200px;
+       }
+
+       strong em {
+        color: red;
+       }
+       strong .text {
+        color: blue;
+       }
+       .content .text {
+        color: pink;
+       }
+
+       /* 文本提示样式类 */
+       .tip {
+         font-weight: bold;
+       }
+       .tip.tip-success {
+         color: green;
+       }
+       .tip.tip-warning {
+         color: orange;
+       }
+       .tip.tip-danger {
+         color: red;
+       }
+
+       /* 分组选择器 */
+       input,
+       textarea {
+        outline: none;
+         /* outline-color: green;
+          * outline-style: dotted;
+          * outline-width: 5px; 
+         */
+       }
+
+       /* 浏览器对父子选择器的匹配规则 */
+       .nav header h3 span {
+         color: red;
+       }
+       /* 按钮 */
+       button {
+         font-size: 14px;
+         color: white;
+         background-color: green;
+         border: none;
+       }
+    </style>
+</head>
+<body>
+    
+    <!-- 浏览器
+      组成部分
+      shell   内核
+    全球最大的浏览器厂商  内核
+      Google Chrome    webkit/blink
+      safari           webkit
+      firefox          gecko
+      IE               trident
+      opera            presto   属于360和昆仑外维
+    内核: 渲染rendering引擎/JS引擎 -->
+
+    <!-- CSS  cascading style sheet 层叠样式表 -->
+
+    <!-- 注意复合类名的时候
+    类中横线: .btn-success
+    id下横线: #btn_success -->
+    
+    <p>
+       内联样式 > 内部样式表 > 外部样式表
+    </p>
+
+    <!-- 选择器 
+       id (一个页面只能定义一个)
+       class (统一类样式：一个类可以定义很多个元素)
+       标签选择器(初始化标签样式的时候用标签选择器)
+       * 通配符选择器(适用于页面的所有的html标签, 谨慎使用)
+       [id="box"] [href] 属性选择器 一般input使用的多 -->
+
+    <p>
+       !important> id> class|属性选择器>标签>*
+    </p>
+
+    <!-- 派生选择器  父子选择器  #content #text{}不可以：因为id是唯一的
+      strong em{}
+      strong .text{}
+      .content .text{}
+      ...
+    -->
+
+    <!-- CSS权重
+    *                    0
+    标签，伪元素          1
+    class, 属性, 伪类    10
+    id                  100
+    内联样式            1000
+    !important         正无穷
+
+    256进制
+
+    数学     正无穷=正无穷+1
+    计算机   正无穷< 正无穷+1 -->
+
+    <!-- 并列选择器
+    h1.title{
+      color: blue;
+    } 
+    .box.box1{
+      color: red;
+    }
+    -->
+
+    <!-- 文本提示样式类
+    所有的文本都是粗体 -->
+    <p class="tip tip-success">1, success 成功的提示 green</p>
+    <p class="tip tip-warning">2, warning 警告的提示 orange</p>
+    <p class="tip tip-danger">3, danger 失败的提示 red</p>
+    
+    <!-- 分组选择器 -->
+    <input type="text" />
+    <br />
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+
+    <!-- 浏览器对父子选择器的匹配规则:
+       从右到左,从下到上 -->
+    <div>
+      <header class="nav">
+        <h3>
+          <span>234</span>
+        </h3>
+      </header>
+    </div>
+
+    <!-- button 标签 -->
+    <button>按钮</button>
+
+    <strong>
+      <em>hello world</em>
+    </strong>
+    <strong>
+      <em class="text">hello world</em>
+    </strong>
+    <strong class="content">
+      <em class="text">hello world</em>
+    </strong>
+    
+    <p><a href="http://www.baidu.com">百度一下</a></p>
+    <p>
+      <input type="username" />
+    </p>
+    <p>
+      <input type="password" />
+    </p>
+
+    <div id="box" class="box" style="width: 100px; height: 100px;">
+      
+    </div>
+    
+</body>
+</html>

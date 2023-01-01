@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+       div {
+         overflow: hidden;
+         overflow: scroll;
+         overflow: auto;
+         font-size: 14px;
+         font-weight: bold;
+         font-style: italic;
+         font-style: oblique;
+         font-style: normal;
+       }
+       /* 样式初始化 */
+       ul {
+         padding: 0;
+         margin: 0;
+         list-style: none;
+       }
+       input,
+       textarea,
+       button{
+        outline: none;
+       }
+       a {
+         text-decoration: none;
+       }
+       i,
+       em {
+         font-style: normal;
+       }
+       h1,
+       h2,
+       h3,
+       h4,
+       h5,
+       h6 {
+          font-weight: normal;
+       }
+       .family{
+         font-family: "Hiragino Sans GB","Microsoft Yahei",arial,\5b8b\4f53,"Helvetica Neue",Helvetica,STHeiTi,sans-serif;
+       }
+
+       /* border */
+       .box1 {
+         /* width: 0;
+          * height: 0;
+          * border-width: 100px;
+          * border-style: solid;
+          * border-top-color: red;
+          * border-right-color: green;
+          * border-bottom-color: blue;
+          * border-left-color: pink; */
+         width: 0;
+         height: 0;
+         border-width: 100px;
+         border-style: solid;
+         /* border-top-color: transparent;
+          * border-right-color: transparent;
+          *  border-bottom-color: transparent; 
+         */
+         border-color: transparent;
+         border-left-color: pink;
+       }
+
+       /* 文本对齐 */
+       /* 文本行高 */
+       .text{
+           width: 200px;
+           height: 200px;
+           border: 1px solid #000;
+           text-align: center;
+           line-height: 200px;
+       }
+
+       /* 文本缩进 */
+       /* 用在input中 */
+       input {
+          text-indent: 15px;
+       }
+       .box6 {
+          width: 200px;
+          height: 200px;
+          border: 1px solid #000;
+       }
+       p {
+          text-indent: 2em;
+       }
+
+       /* 装饰属性 */
+       .text1 {
+         text-decoration: underline;
+         cursor: pointer;
+       }
+       .text2 {
+          text-decoration: line-through;
+       }
+       .text3 {
+          text-decoration: overline;
+       }
+
+       /* 小手式 */
+       /* button{
+         cursor: not-allowed;
+       } */
+
+       /* 单行省略号 */
+       .sigle {
+         width: 100px;
+         height: 21px;
+         border: 1px solid #000;
+         white-space: nowrap;  /*不换行*/
+         overflow: hidden;
+         text-overflow: ellipsis; /*隐藏部分加省略号*/
+       }
+       /* 多行省略号 */
+       .double {
+         width: 100px;
+         height: 42px;
+         border: 1px solid #000;
+         overflow: hidden;
+       }
+
+       /* 伪类选择器 */
+       .btn:disabled {
+          background-color: bisque;
+       }
+       /* .btn:hover {
+          color: red;
+       } */
+       /* 美化多选框 */
+       .checkbox {
+          height: 40px;
+          width: 40px;
+          border: 1px solid #000;
+          border-radius: 50%;
+       }
+       .checkbox label {
+          display: block;
+          height: 20px;
+          width: 20px;
+          margin: 10px;
+          background-color: #000;
+          border-radius: 50%;
+          opacity: 0;
+          filter: alpha(opacity=0); /*兼容IE*/
+       }
+       .checkbox input[type="checkbox"]{
+          display: none;
+       }
+       /* + 相邻兄弟选择器特点
+        *  1，同父级
+        *  2，相邻
+        *  3，在其之后
+        */
+       .checkbox input[type="checkbox"]:checked + label {
+            opacity: 1;
+            filter: alpha(opacity=100);
+       }
+
+       /* 容器内的多行文本居中的方法 */
+       .table {
+          height: 100px;
+          width: 100px;
+          border: 1px solid #000;
+          display: table;   /*1，将容器的display设置成table*/
+       }
+       .table span {
+          display: table-cell;  /*2，将容器内的文本的display设置成table-cell(表格单元格属性)*/
+          vertical-align: middle;  /*3，将容器内的文本的vertical-align设置成middle*/
+       }
+
+       /* 图片空格问题的存在原因和解决方法 */
+       img {
+          width: 100px;
+          height: 100px;
+          border: 1px solid #000;
+       }
+    </style>
+</head>
+<body>
+    <!-- 属性 -->
+    <!-- width height min-width 
+    min-height max-width max-height -->
+
+    <!-- overflow属性
+         overflow: hidden;
+         overflow: scroll;
+         overflow: auto; -->
+    
+    <!-- font-size属性
+      常用 12 14 16 18
+      浏览器默认的字体大小 16像素
+      px 全称 pixel
+      浏览器设置字体的时候是设置高度，宽度自动缩放 -->
+    
+      <!-- font-weight属性 字体粗细
+          lighter normal bold bolder
+          100-900 -->
+      <h1>你好</h1>
+      <h2>你好</h2>
+      <h3>你好</h3>
+      <h4>你好</h4>
+      <h5>你好</h5>
+      <h6>你好</h6>
+
+      <!-- font-style属性
+          font-style: italic;
+          font-style: oblique; 强制斜体 
+          font-style: normal;
+        -->
+
+      <!-- font-family 是一个复合属性 考虑浏览器的兼容性
+        有空格的字体标识，中文字体标识用""包裹
+        通用字体: arial  -->
+      <p class="family">你好，你好</p>
+      
+      <!-- 颜色 -->
+      <!-- color
+        <p>英文单词颜色设置；项目中不用</p> 
+        <p>十六进制的颜色值</p> 
+      光学的三原色
+       red      green   blue 
+       00-ff    00-ff   00-ff -->
+
+       <!-- rgb
+       red        green       blue
+       0-255      0-255       0-255
+       rgb(0,0,255) 
+       rgb(0,0,260) 注意大于255按255算
+       -->
+       
+       <!-- 边框 -->
+       <!-- border -->
+       <div class="box1"></div>
+       <!-- 三角形
+       width: 0;
+         height: 0;
+         border-width: 100px;
+         border-style: solid;
+         /* border-top-color: transparent;
+         border-right-color: transparent;
+         border-bottom-color: transparent; */
+         border-color: transparent;
+         border-left-color: pink; -->
+
+        <!-- 文本对齐 -->
+        <div class="text">
+            你好, 2023
+        </div>
+        <!-- 文本行高 -->
+          <!-- 一行所占的高度
+          行高默认是21或22像素 -->
+          <!-- .text{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 200px;
+           } -->
+        
+        <!-- 文本缩进 -->
+        <input type="text">
+        <div class="box6">
+           <p>你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;</p>
+           <p>你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;</p>
+           <p>你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;</p>
+           <p>你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;</p>
+           <p>你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;你好, 2023;</p>
+        </div>
+
+        <!--默认 1em=16px 
+                 10px=0.526em
+                 font-size:62.5% ->10px=1em
+        -->
+        <!-- html {
+            font-size: 62.5%;
+        } -->
+        <!-- 行高的1.2倍
+        line-height:1.2em; -->
+
+        <!-- text-decoration 装饰属性 -->
+        <!-- .text1 {
+            text-decoration: underline;
+          }
+          .text2 {
+             text-decoration: line-through;
+          }
+          .text3 {
+             text-decoration: overline;
+          } -->
+           <span class="text1">百度一下</span>
+           <br />
+           <span class="text2">百度一下</span>
+           <br />
+           <br />
+           <br />
+           <br />
+           <span class="text3">百度一下</span>
+        
+        <!-- 小手属性 --> 
+        <!-- cursor: pointer;  小手
+        cursor: not-allowed;  禁用 -->
+        <button disabled="disabled">提交</button> 
+
+        <p>单行文本截断和显示省略号的三大件</p>
+        <div class="sigle">
+            <span>我想成为牛逼的WEB前端工程师</span>
+        </div>
+
+        <p>多行文本截断和显示省略号</p>
+        <div class="double">
+            <span>我想成为牛逼的WEB前端工程师</span>
+        </div>
+
+        <!-- 伪类选择器 -->
+        :hover     鼠标划过
+        :disabled  禁用
+        :checked   选中 用于美化多选框
+        :focus     聚焦 input,button,textarea用
+        :first-child  第一个元素
+        :last-child   最后一个元素
+        :nth-child(odd奇数|even偶数|number数字)  第n个子元素
+        <button class="btn" disabled="disabled">按钮</button>
+        <br />
+        <p>美化多选框</p>
+        <div class="checkbox">
+            <input type="checkbox" id="checkbox">
+            <label for="checkbox"></label>
+        </div>
+
+        <!-- 解决行内块元素和行内元素之间文本对齐的问题 
+                vertical-align:top|middle|bottom|像素; 
+        -->
+        <p>解决行内块元素和行内元素之间文本对齐的问题</p>
+        <p>vertical-align:top|middle|bottom|像素;</p>
+
+        <!-- 容器内的多行文本居中的方法
+               1，将容器的display设置成table
+               2，将容器内的文本的display设置成table-cell(表格单元格属性)
+               3，将容器内的文本的vertical-align设置成middle
+            -->
+        <div class="table">
+             <span>多行文本居中多行文本居中</span>
+        </div>
+
+        <!-- 解决图片中间的换行问题：原因是行内块元素，空格或换行都有文本分割符，所以会有空格 -->
+        <p>解决图片中间的换行问题</p>
+        <img src="../../img/1.jpg" alt="">
+        <img src="../../img/1.jpg" alt="">
+        <img src="../../img/1.jpg" alt="">
+        <img src="../../img/1.jpg" alt="">
+        <p>解决方法</p>
+        <img src="../../img/1.jpg" alt=""><img src="../../img/1.jpg" alt=""><img src="../../img/1.jpg" alt=""><img src="../../img/1.jpg" alt="">
+        
+        <!-- 标签初始化 -->
+        <p>标签初始化ul,hx,input,textarea</p>
+
+        <!-- 隐藏 
+        visibility: hidden; 隐藏占位
+        display: none;      隐藏不占位-->
+
+
+</body>
+</html>
