@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFC特性解决问题 书写规范</title>
+    <style type="text/css">
+         .box1 {
+            height: 300px;
+            width: 300px;
+            background-color: #000;
+            border: 1px solid transparent;  /*写边框*/
+            overflow: hidden; /*触发BFC解决*/
+         }
+         .box2 {
+            margin: 0 auto;
+            margin-top: 100px;
+            height: 50px;
+            width: 50px;
+            background-color: orange;
+         }
+
+         /* font */
+         .font {
+            font:italic bold 12px/20px "微软雅黑";
+         }
+    </style>
+</head>
+<body>
+    
+    <!-- BFC特性 
+         block formatting contexts
+         块级格式化上下文
+    -->
+
+    <!-- 普通流        normal flow
+    浮动流        float  
+    绝对定位布局  absolute positioning -->
+
+    <!-- 具有BFC特性
+    float:left right
+    position: absolute fixed
+    display: inline-block  table-cell 
+    overflow: hidden auto scroll -->
+    
+    <!-- <p>所有float全都自动转换成inline-block</p> -->
+
+    <!-- 
+      BFC的作用:
+      margin合并的问题，不用解决
+      可以解决高度塌陷的问题，但是不用这些
+      margin塌陷的问题
+      浮动元素覆盖的问题
+    -->
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+
+    <!-- 规范 -->
+    <p>CSS 书写顺序</p>
+    <!-- 
+        显示属性: display,position,float,clear;
+        自身属性: width,height,margin,padding,border,background;
+        文本属性: color,font,text-align,vertical-allion,whitespace;
+        其他 
+    -->
+
+    <p>简写</p>
+    <p class="font">font-style font-weight font-size line-height font-family </p>
+    <!-- font:italic bold 12px/20px "微软雅黑" -->
+
+    <p>小数点写.6的形式</p>
+
+    <p>选择器复合单词  中横线</p>
+    <p>JS钩子ID 复合单词  下划线</p>
+    <p>选择器 小写</p>
+    <p>尽可能英文</p>
+    <p>结构化命名</p>
+    
+
+</body>
+</html>

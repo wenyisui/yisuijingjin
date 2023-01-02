@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css3属性 阴影 圆角 背景图片 logo</title>
+    <style type="text/css">
+       .box {
+          height: 100px;
+          width: 100px;
+          margin: 100px;
+          background-color: orange;
+          box-shadow: 0 0 10px 5px #f40;
+       }
+       .header {
+        position: relative;  /*阴影遮挡*/
+        z-index: 1;
+        width: 100%;
+        height: 60px;
+        background-color: yellow;
+       }
+       .box1 {
+         height: 200px;
+         width: 200px;
+         margin-left: 200px;
+         background-color: orange;
+         box-shadow: 0 0 10px 10px #f40;
+         -webkit-box-shadow: 0 0 10px 10px #f40;
+         /* chrome  safari */
+         -moz-box-shadow:0 0 10px 10px #f40;
+         /* firefox */
+         -o-box-shadow:0 0 10px 10px #f40;
+         /* persto  opera */
+       }
+
+       /* 圆角 */
+       .box2 {
+          height: 100px;
+          width: 100px;
+          background-color: orange;
+          border-radius: 50%;
+          -webkit-border-radius:50%;
+          /* chrome  safari */
+          -moz-border-redius:50%;
+          /* firefox */
+          -o-border-redius:50%;
+          /* persto  opera */
+       }
+
+       /* 图片圆角问题 */
+       .swipter {
+         width: 440px;
+         height: 248px;
+         border: 1px solid #000;
+         border-radius: 20px;
+         overflow: hidden;
+       }
+       img {
+         width: 100%;
+       }
+
+       /* 背景图片 */
+       .img {
+         height: 300px;
+         width: 300px;
+         margin: 100px;
+         border: 1px solid #000;
+         background-image: url(../../img/1.jpg);
+         background-size: 50% 50%;
+         background-repeat: no-repeat; /*不重复*/
+         /* background-repeat: repeat;   重复*/
+         /* background-repeat: repeat-x; x轴重复*/
+         /* background-repeat: repeat-y; y轴重复*/
+         background-position: center center;
+         /* background-position: center center|left top|left bottom|...; */
+       }
+
+       /* 处理背景图片图片变形的问题 */
+       .banner {
+          width: 100%;
+          height: 500px;
+          background-color: orange;
+          background-image: url(../../img/1.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+       }
+       /* 
+        * cover和contain的区别
+        * contain:图片自身的宽高比是不会变的，整个图片都会显示出来
+        * cover：不被怪异缩放，铺满整个宽高，多余的部分剪切掉
+       */
+
+       /* 背景图片铺整个页面内容超出有滚动条时让背景图片不滚动 */
+       html {
+         height: 100%;
+         background-color: green;
+         background-image: url(../../img/1.jpg);
+         background-size: 100% 100%;
+         background-attachment: fixed;
+         /* background-attachment: fixed不滚动|scroll滚动; */
+         /* 复合值 */
+         /* background: green url(../../img/1.jpg) no-repeat fixed 0 0/100% 100%; */
+       }
+
+       /* background顺序
+          background: background-color 
+                   background-image 
+                   background-repeat
+                   background-attachment
+                   background-position/
+                   background-size
+       
+       */
+
+       /* logo 网速不好的时候用户体验 */
+       h1 {
+        margin: 0;
+       }
+       .logo {
+         width: 142px;
+         height: 58px;
+       }
+       .logo h1 .logo-hd {
+          display: block;
+          width: 142px;
+          height: 0;
+          padding-top: 58px;
+          background: url(../../img/1.jpg) no-repeat 0 0/142px 58px;
+          overflow: hidden;
+          border: 1px solid #000;
+       }
+    </style>
+</head>
+<body>
+    
+    <!-- 阴影 box-shadow -->
+    <!-- 参数属性: 
+    box-shadow:水平位置(必) 垂直位置(必) 模糊距离 阴影的尺寸 阴影颜色 阴影的种类inset向内扩散 -->
+    <div class="box"></div>
+
+    <!-- 阴影的遮挡 -->
+    <div class="header"></div>
+    <div class="box1"></div>
+
+    <!-- 
+        圆角 box-radius
+        纯圆 50% 宽高一样
+        半圆角 height/2 + px
+    -->
+    <div class="box2"></div>
+
+    <!-- 图片圆角问题 -->
+    <div class="swipter">
+       <img src="../../img/1.jpg">
+    </div>
+
+    <!-- 背景图片 -->
+    <div class="img"></div>
+
+    <!-- 处理图片变形的问题 -->
+    <div class="banner"></div>
+
+    <!-- background 复合属性 -->
+    <p>background 顺序</p>
+    <!-- <p>background: background-color 
+                   background-image 
+                   background-repeat
+                   background-attachment
+                   background-position/
+                   background-size
+    </p> -->
+
+    <!-- logo -->
+    <div class="logo">
+        <h1>
+            <a href="" class="logo-hd">淘宝网</a>
+        </h1>
+    </div>
+
+</body>
+</html>

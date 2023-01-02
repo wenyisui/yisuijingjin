@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清除浮动 伪元素 content的用法</title>
+</head>
+<style type="text/css">
+    /* 项目级开发设置 */
+    div{
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        /* firefox */
+        -webkit-box-sizing: border-box;
+        /* chrome  safari */
+        -ms-box-sizing:border-box;
+        /* IE8以下 */
+        -o-box-sizing:border-box;
+        /* persto  opera */
+    }
+    /* 项目级开发设置 content-box解开border-box */
+    .content-box {
+        box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        /* firefox */
+        -webkit-box-sizing: content-box;
+        /* chrome  safari */
+        -ms-box-sizing:content-box;
+        /* IE8以下 */
+        -o-box-sizing:content-box;
+        /* persto  opera */
+    }
+    .box {
+        height: 200px;
+        width: 200px;
+        padding: 30px;
+        border: 1px solid #000;
+    }
+    .box1 {
+        height: 100%;
+        width: 100%;
+        background-color: orange;
+    }
+    /* 清除浮动 */
+    .clearfix {
+        clear: both;
+    }
+    /* 清除浮动的最佳方法 */
+    .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    
+    .p::before {
+        content: "";
+        display: inline-block;
+        width: 100px;
+        height: 20px;
+        background-color: orange;
+    }
+    .p::after {
+        content: "";
+        display: inline-block;
+        width: 100px;
+        height: 20px;
+        background-color: greenyellow;
+    }
+
+    /* 最佳清除浮动 */
+    .folat {
+        width: 220px;
+        border: 10px solid #000;
+    }
+    .folat1 {
+        float: left;
+        height: 100px;
+        width: 100px;
+        background-color: orange;
+    }
+    .folat3 {
+        float: left;
+        height: 100px;
+        width: 100px;
+        background-color: greenyellow;
+    }
+
+    /* content用法 */
+    /* 方法一 */
+    .emil::before {
+        content: url(../../img/图标);
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+    /* 方法二 */
+    .login::before {
+        content: attr(data-username);
+    }
+</style>
+<body>
+    
+    <!-- 盒子模型  box model 容器 -->
+    <!-- 组成四大要素：
+    1, 宽高所划分的区域
+    2, 边框
+    3, 内边距
+    4, 外边距 
+    -->
+    <div class="box">
+        <div class="box1">
+
+        </div>
+    </div>
+
+    <!--box-sizing: border-box;兼容性问题  -->
+    <p>box-sizing: border-box;兼容性问题</p>
+    <!-- 
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        /* firefox */
+        -webkit-box-sizing: border-box;
+        /* chrome  safari */
+        -ms-box-sizing:border-box;
+        /* IE8以下 */
+        -o-box-sizing:border-box;
+        /* persto  opera */
+    -->
+
+    <!-- margin -->
+    <p>浏览器默认margin</p>
+     <!--
+        IE8->上下16px 左右8px 
+        IE7->上下16px 左右11px 
+    -->
+
+    <!-- 定位 -->
+    <!-- 绝对定位和相对定位的区分: 绝对定位把原来的位置腾出来，相对定位原来的位置不腾出来 -->
+    <!-- 
+        绝对定位 position: absolute; top|right|bottom|left
+        相对定位 position: relative; top|right|bottom|left
+        固定定位 position: fixed;    top|right|bottom|left
+     -->
+    <p>定位</p>
+
+    <!-- 浮动float -->
+    <p>浮动特点</p>
+    <!-- 块级元素加了float以后，元素就变成内联块级元素 -->
+    <!-- 
+        内联，内联块，浮动，溢出隐藏，纯文本都可以识别浮动元素的位置
+        除了块元素
+     -->
+    <!-- 
+        浮动流，块级元素无法识别浮动流元素的位置
+        清除浮动:
+        <p class="clearfix"></p>
+        .clearfix {
+        clear: both;
+        }
+    -->
+
+    <!-- 伪类和伪元素 -->
+    <!-- 
+        伪元素：
+        ::after
+        ::before
+    -->
+    <p>伪类和伪元素</p>
+    <p>content用法</p>
+    <!-- 用法一 -->
+    <p class="emil">请点击发送</p>
+    <!-- 用法二 -->
+    <p class="login" data-username="小温温">,欢迎您再次来到本网站</p>
+    
+    <p class="p">很厉害</p>
+    <!-- 最佳清除浮动 -->
+    <p>最佳清除浮动</p>
+    <div class="folat">
+        <div class="folat1"></div>
+        <div class="folat3"></div>
+    </div>
+
+</body>
+</html>

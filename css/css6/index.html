@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table样式</title>
+    <style type="text/css">
+         table {
+            width: 300px;
+            height: 300px;
+            /* border: 1px solid #000; */
+            /* caption-side: top|bottom;  caption的位置*/
+            border-collapse: collapse;
+            /* border-collapse: separate|collapse; 单双边框设置*/
+            table-layout: fixed;  /*单元格的宽度保持一致*/
+            /* table-layout: automatic|fixed; */
+         }
+         table tr td:nth-child(2){
+            text-align: center;
+         }
+         table tr:nth-child(even){
+            background-color: #eee;
+         }
+         table tr:hover{
+            background-color: #ddd;
+         }
+
+         /* ul模拟table */
+         ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+         }
+         .clearfix::after {
+            content: " ";
+            display: block;
+            clear: both;
+         }
+         .box {
+           width: 300px;
+           overflow: hidden;
+           border-bottom: 1px solid #000;
+         }
+         .table {
+            width: 302px;
+            margin-left: -1px; 
+         }
+         .table li {
+            float: left;
+            width: 33.33%;
+            height: 100px;
+            border-top: 1px solid #000;
+            border-left: 1px solid #000;
+            box-sizing: border-box;
+         }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <caption>测试表格</caption>
+        <tr>
+            <td>1</td>
+            <td>222222
+                2222222
+                222</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+    </table>
+    <br />
+    <!-- ul模拟table -->
+    <div class="box">
+        <ul class="table">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>
