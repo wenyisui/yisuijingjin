@@ -1,0 +1,20 @@
+.icon{
+    display: block;
+    height: 30px;
+    width: 30px;
+    margin: 11px auto 6px;
+    background: url(../css/icons/img.png);
+    background-repeat: no-repeat;
+   }
+.icon-ps{background-position:0 0;}
+.icon-ppt{background-position:-30px 0;}
+.icon-kaitonghuiyuan{background-position:-60px 0;}
+.icon-yaoqinghaoyou{background-position:-90px 0;}
+.icon-word{background-position:-120px 0;}
+.icon-shangjiadianpu{background-position:-150px 0;}
+.icon-fangwuchuzu{background-position:-180px 0;}
+.icon-denglu{background-position:-210px 0;}
+.icon-behance{background-position:-240px 0;}
+.icon-kaiji{background-position:-270px 0;}
+.icon-huangguanyonghu{background-position:-300px 0;}
+.icon-guanji{background-position:-330px 0;}

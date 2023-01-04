@@ -1,0 +1,54 @@
+body {
+    background-color: #f4f4f4;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+ul,
+li {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+p {
+    margin: 0;
+}
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.funcs-container {
+    width: 290px;
+    height: 232px;
+    margin: 100px auto;
+    overflow: hidden;
+    background-color: #fff;
+}
+.funcs-container .funcs-list {
+    width: 294px;
+    height: 232px;
+    /* border: 1px solid #000; */
+    margin-left: -2px;
+    border-bottom: 1px solid #000;
+}
+.funcs-container .funcs-list .funcs-item {
+    float: left;
+    width: 25%;
+    height: 77px;
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+}
+.funcs-container .funcs-list .funcs-item .funcs-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.funcs-container .funcs-list .funcs-item .funcs-link p {
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+}
