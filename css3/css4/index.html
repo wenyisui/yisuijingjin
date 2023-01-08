@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>边框图片</title>
+    <style type="text/css">
+         .box {
+            width: 310px;
+            height: 310px;
+            border: 70px solid #000;
+            box-sizing: border-box;
+            border-image: url(./img//1.png);
+            /* border-image: url(./img/1.png) 70 repeat;
+            border-image-width: 70px;
+            border-image-outset: 20px; */
+            /* 简写 */
+            /* border-image: url(./img/1.png) 70/70px/20px repeat; */
+            /* border-image-source: url(./img/1.png);
+            border-image-slice: 60;
+            border-image-repeat: round; */
+            /* 
+             * stretch 拉伸，有多长拉多长
+             * repeat  4个角的图片进行平铺，中间区域如果是整数倍，刚好放进去，如果不是会进行切割；
+             * round;  4个角的图片进行平铺，不会进行切割 
+            */
+         }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+</html>

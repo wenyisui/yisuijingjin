@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>省略号 自定义字体</title>
+    <style type="text/css">
+       p {
+         /* text-shadow: 2px 2px 3px red; css2废弃css3重新启用 */
+         word-wrap: normal;
+         /* overflow-wrap: normal; */
+       }
+       .box {
+         width: 200px;
+         height: 200px;
+         border: 1px solid #000;
+         /* word-wrap: normal; 默认情况*/
+         /* word-wrap: break-word; 处理长单词，当文字超出容器范围，超出部分强制让单词进行折断  另起一行*/
+         /* word-break: normal|break-all|keep-all; 单词截断的一种方式    不另起一行*/
+         /* white-space: normal/pre/nowrap/pre-wrap/pre-line; */
+         /* white-space: normal; 换行，空格，都直接合并一个，文字转行 */
+         /* white-space: nowrap; 换行合并，空格合并，文字不转行 强制将文本展示到一行 */
+         /* white-space: pre; 全部保留，不转行； 有多少空格保留多少空格 有多少换行保留多少换行*/
+         /* white-space: pre-line; 合并空格，保留换行，正常换行 */
+         /* white-space: pre-wrap; 和pre一样 , 但是正常转行 */
+         /* 超出显示省略号 */
+         overflow: hidden;
+         white-space: nowrap; /*单行显示*/
+         text-overflow: ellipsis; /*溢出部分成小圆点方式显示*/
+         
+         font-family: 'myFont';
+       }
+       @font-face{
+         font-family: 'myFont'; /*自定义名字*/
+         src: url('./fonts//Sweetie\ Autumn.otf'),
+              url('./fonts/Cottsmic.ttf')
+              format('ttf');
+
+           /* 因为浏览器对字体格式的支持不一致，需要指定后缀 */
+       }
+    </style>
+</head>
+<body>
+    <!-- CJK Chinese Japanese  Korea -->
+    <p>测试英文</p>
+    <!-- 半角的空格和连字符 -->
+    <p>测试中文</p>
+    <!-- 浏览器默认不让标点符号位于文字行首，加空格可以让它位于行首 -->
+    <div class="box">
+       feferferwgerdgdfs   gdfgds
+
+
+       fddffsgdf
+    </div>
+
+    <!-- 
+        css声明  声明是以; 隔开
+        css声明块 以{}的形式被组合起来的
+        css规则集合  简称css规则
+        层叠 算法   决定哪个优先级更高的 
+    -->
+    
+    <!-- @(at)规则 -->
+    <!-- @keyframes -->
+    <!-- 
+        @charset
+       @import
+       @namespace 
+    -->
+    <!-- @media -->
+    <!-- @font-face -->
+
+    <!-- 条件规则组
+    @keyframes{
+       from {
+
+       }
+       to {
+        
+       }
+    } -->
+
+</body>
+</html>

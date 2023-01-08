@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例  兼容性</title>
+    <style type="text/css">
+        @font-face {
+            font-family: 'myFont';
+            src: url('./fonts//Sweetie\ Autumn.otf');
+        }
+
+        div,input {
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+        #wrap {
+            margin: 100px auto;
+            width: 460px;
+            height: auto;
+            padding: 8px;
+            border: 1px solid #000;
+            box-shadow: 0 3px 3px rgba(0,0,0, .2);
+            -webkit-box-shadow: 0 3px 3px #000;
+            -moz-box-shadow: 0 3px 3px #000;
+            background-color: #f6f6f6;
+            background-image: linear-gradient(to top #fff, #f6f6f6);
+            background-image: -webkit-linear-gradient(to top #fff, #f6f6f6);
+            background-image: -moz-linear-gradient(to top #fff, #f6f6f6);
+            background-image: -o-linear-gradient(to top #fff, #f6f6f6);
+            background-image: -ms-linear-gradient(to top #fff, #f6f6f6);
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            overflow: hidden;
+        }
+        #wrap .search {
+            float: left;
+            width: 350px;
+            height: 50px;
+            font-family: 'myFont';
+            font-size: 30px;
+            font-weight: bold;
+            border: 1px solid #000;
+            box-shadow: 0 2px 1px 1px #ddd inset,0 2px 0 #fff;
+            -webkit-box-shadow: 0 2px 1px 1px #ddd inset,0 2px 0 #fff;
+            -moz-box-shadow: 0 2px 1px 1px #ddd inset,0 2px 0 #fff;
+            border-radius: 3px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+        }
+        #wrap .search:focus {
+            outline: 0;
+            border-color: #aaa;
+            box-shadow: 0 2px 1px 1px #bbb inset,0 2px 0 #fff;
+            -webkit-box-shadow: 0 2px 1px 1px #bbb inset,0 2px 0 #fff;
+            -moz-box-shadow: 0 2px 1px 1px #bbb inset,0 2px 0 #fff;
+        }
+        #wrap .btn {
+            float: right; 
+            width: 100px;
+            height: 50px;
+            cursor: pointer;
+            color: #fafafa;
+            font-size: 18px;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+
+            font-family: "Hiragino Sans GB","Microsoft Yahei",arial,\5b8b\4f53,"Helvetica Neue",Helvetica,STHeiTi,sans-serif;
+            border-radius: 5px;
+            background-color: #0483a0;
+            background-image: linear-gradient(to top, #31b2c3, #0483a0);
+            background-image: -webkit-linear-gradient(to top, #31b2c3, #0483a0);
+            background-image: -moz-linear-gradient(to top, #31b2c3, #0483a0);
+            background-image: -o-linear-gradient(to top, #31b2c3, #0483a0);
+            background-image: -ms-linear-gradient(to top, #31b2c3, #0483a0);
+        }
+        #wrap .btn:hover,
+        #wrap .btn:focus{
+            background-color: #31b2c3;
+            background-image: linear-gradient(to bottom, #31b2c3, #0483a0);
+            background-image: -webkit-linear-gradient(to bottom, #31b2c3, #0483a0);
+            background-image: -moz-linear-gradient(to bottom, #31b2c3, #0483a0);
+            background-image: -o-linear-gradient(to bottom, #31b2c3, #0483a0);
+            background-image: -ms-linear-gradient(to bottom, #31b2c3, #0483a0);
+        }
+        #wrap .btn:active {
+            outline: 0;
+            box-shadow: 0 2px 4px #000 inset;
+            -webkit-box-shadow: 0 2px 4px #000 inset;
+            -moz-box-shadow: 0 2px 4px #000 inset;
+        }
+    </style>
+</head>
+<body>
+    <form id="wrap">
+        <div class="input-box">
+            <input type="text" name="selectedLang" class="search" placeholder="html,css,jquery,vue,react,choose one" />
+            <input type="submit" class="btn" value="submit" />
+        </div>
+    </form>
+</body>
+</html>

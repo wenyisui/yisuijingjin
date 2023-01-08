@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css3 属性选择器 伪类选择器</title>
+    <style type="text/css">
+        /* 开头 */
+        input[type^="t"] {
+            outline: none;
+        }
+
+        /* 结尾 */
+        input[type$="d"] {
+            color: red;
+        }
+
+        /* 包含 */
+        input[type*="word"] {
+            outline: none;
+        }
+
+        /* 自定义属性 */
+        input[textIndent*="nor"] {
+            color: blue;
+        }
+
+        /* 以相应的空格作为分隔 */
+        input[textIndent~="first"] {
+            color: blue;
+        }
+
+        /* 伪类选择器 */
+        /* :root能够找到对应的跟节点比html的优先级高 */
+        :root {
+            background-color: #ccc;
+        }
+
+        /* :not()伪类 */
+        input:not([textIndent$="first"]) {
+            color: red;
+        }
+
+        /* :not(table) a{  它不会找它父级里的a,只找同一级的
+  
+        } */
+        /* :empty找真正的空 */
+        .box {
+            margin: 10px;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .box:empty {
+            background-color: blue;
+        }
+
+        /* :target */
+        :target {
+            background-color: #000;
+            opacity: .5;
+        }
+
+        /* 
+         * :first-child
+         * :last-child
+         * :nth-child
+         * :nth-last-child 
+         */
+         .divp p:first-child{
+            background-color: red;
+         }
+         .divp p:last-child{
+            background-color: blue;
+         }
+         /*:nth-child(odd奇数|even偶数|an+b循环)参数  */
+         .divp p:nth-child(4n + 1){
+            background-color: red;
+         }
+         .divp p:nth-child(4n + 2){
+            background-color: blue;
+         }
+         .divp p:nth-child(4n + 3){
+            background-color: orange;
+         }
+         .divp p:nth-child(4n + 4){
+            background-color: pink;
+         }
+
+         /* 
+          * :first-of-type
+          * :last-of-type
+          * :nth-of-type 
+          */
+          .divspan :first-child {
+            background-color: blue;
+          }
+          .divspan :first-of-type {
+             background-color: red;
+          }
+
+          /* :only-child */
+          .only :only-child {
+            color: red;
+          }
+
+          /* UI元素状态伪类选择器 :hover :focus :active */
+          a:hover {
+             color: red;
+          }
+          /* input[type="text"]:focus {
+            color: red;
+          } */
+          input[type="text"]:active{
+            background-color: red;
+          }
+
+          /* :read-only只读属性  :read-write 可读可写  */
+          input[type="text"]:read-only {
+            background-color: orange;
+          }
+
+          /* :checked 单选框复选框被选中  :default用户打开时默认出现的样式 */
+          input[type="radio"]:checked{
+            outline: 2px solid #000;
+          }
+
+          /* :indeterminate, :indeterminate + label{}用户未被指定的默认状态 */
+          /* 方法: 在js中获取到对应的元素, 然后把indeterminate属性改为true,然后样式才能生效 */
+          :indeterminate, :indeterminate + label{
+            background-color: blue;
+          }
+          
+          /* 伪元素选择器 */
+          /* ::after ::before */
+          /* ::first-letter块级元素的第一个字母   ::first-line块级元素的第一行  ::selection选中 */
+          .letter {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+          }
+          .letter .text::first-letter {
+            color: red;
+          }
+          .letter .text::first-line {
+            background-color: blue;
+          }
+          .letter .text::selection {
+            background-color: red;
+            cursor: pointer;
+          }
+
+          /* user-select:none; 不让用户复制，在生产环境当中不要使用，用js实现 */
+    </style>
+</head>
+
+<body>
+    <!-- 文档：信息的集合 -->
+
+    <!-- 用户代理(UA)概念：
+       文档呈现给用户的程序
+    -->
+
+    <!-- 
+     adobe system, Apple , goole , IBM , Mollia , Microsoft , Opera ,
+     Sun , HP    CSS working Group组织制定的
+
+     -moz-     Mollia
+     -ms-      IE
+     -o-       Opera
+     -webkit-  webkit内核
+     CSS3并没有一个标准的规范，开发不需要做兼容性处理，打包工具可以自动补全前缀 
+    -->
+
+    <!-- 
+    CSS历史
+    1996.12   CSS1.0
+    1998.5    CSS2.0  层叠样式
+    2004.2    CSS2.1  
+    2010      CSS3.0  
+    -->
+
+    <!-- CSS3 -->
+    <!-- 
+        选择器 : 
+    -->
+
+    <!-- 属性选择器 -->
+    <!-- 应用： -->
+    <a href="http://"></a>
+    <p>以相应的字符串作为开头的一个选择器</p>
+    <!-- E[att^="val"] 以相应的字符串作为开头的一个选择器-->
+    <p>以相应的字符串作为结尾的一个选择器</p>
+    <!-- E[att$="val"] 以相应的字符串作为结尾的一个选择器-->
+    <p>包含相应的字符串的一个选择器</p>
+    <!-- E[att*="val"] 包含相应的字符串的一个选择器-->
+    <p>自定义属性选择器</p>
+    <!-- E[textIndent*="nor"] 包含相应的字符串的一个选择器-->
+    <p>以相应的空格作为分隔</p>
+    <!-- E[textIndent~="first"] 以相应的空格作为分隔-->
+    <input type="text" textIndent="normal first" />username
+    <input type="password" value="123" textIndent="normal second" />password
+
+    <!-- 伪类选择器 UI元素状态伪类选择器 -->
+    <!-- E:hover{} -->
+    <!-- E:focus{} -->
+    <!-- E:active{}  元素被激活(鼠标按下去还没松开)-->
+
+    <!-- :anabled(表单能够被启用)  :disabled -->
+    <!-- :read-only只读属性  :read-write 可读可写 -->
+    <!-- :checked 单选框复选框被选中  :default -->
+    <!-- indeterminate 用户未被指定的默认状态 -->
+    
+    <!-- 
+    伪元素选择器 
+    ::after ::before  
+    -->
+    <!-- ::first-letter块级元素的第一个字母   ::first-line块级元素的第一行  ::selection选中 -->
+    <div class="letter">
+        <p class="text">这是为了test
+            这是为了test
+            这是为了test这是为了test
+        </p>
+    </div>
+
+    <div>
+        <input type="checkbox" id="checkbox" />
+        <label for="checkbox">这是input1</label>
+    </div>
+    <input type="radio">
+    <input type="checkbox">
+    <a href="">这是a标签</a>
+    <input type="text" readonly />
+    <input type="password" />
+    <!-- :root {
+
+    } -->
+    <!-- :not {
+
+    } -->
+    <!-- :empty -->
+    <div class="box">
+        <!--有注释的空元素 -->
+    </div>
+    <div class="box">这是空的元素</div>
+    <div class="box">
+        <!--有换行的空元素 ，文本分隔符-->
+    </div>
+    <!-- :target -->
+    <h4 id="one">这是h4</h4>
+    <p id="two">这是p</p>
+    <div id="three">这是div</div>
+    <a id="four" href="">这是a</a>
+    <em id="five">这是EM标签</em>
+
+    <a href="#one">First</a>
+    <a href="#two">Second</a>
+    <a href="#three">Third</a>
+    <a href="#four">Fouth</a>
+    <a href="#five">Fifth</a>
+    
+    <!-- 结构选择器 -->
+    <!-- 
+      :first-child
+      :last-child
+      :nth-child
+      :nth-last-child 
+    -->
+    <div class="divp">
+        <p>第一个p</p>
+        <p>第二个p</p>
+        <p>第三个p</p>
+        <p>第四个p</p>
+        <p>第五个p</p>
+        <p>第六个p</p>
+        <p>第七个p</p>
+        <p>第八个p</p>
+        <p>第九个p</p>
+    </div>
+
+    <!-- 
+        :first-of-type
+        :last-of-type
+        :nth-of-type 
+    -->
+    <div class="divspan">
+        <span>这是span1</span>
+        <span>这是span2</span>
+        <span>这是嵌套<em>嵌套em</em>的span</span>
+        <span>这是嵌套<span>嵌套em</span>的span</span>
+        <em>这是em标签</em>
+        <span>这是最后一个span</span>
+    </div>
+
+    <!-- :only-chilld{ 唯一一个子元素
+
+    } -->
+    <div class="only">
+        <div>
+            <i>只有一个子元素</i>
+        </div>
+        <div>
+            <i>我是i标签</i>
+            <em>我是em标签</em>
+            <span>我有一个<span>里面的span</span></span>
+        </div>
+    </div>
+    <script type="text/javascript">
+       var inputs=document.getElementById("checkbox");
+       console.log(inputs);
+        inputs.indeterminate=true;
+    </script>
+</body>
+
+</html>

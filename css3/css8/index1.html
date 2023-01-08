@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渐变色</title>
+    <style type="text/css">
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            /* 线性渐变 */
+            /* background-image: [derection], color[percent],color[percent],color[percent];  linear-gradient(red,green)线性渐变*/
+            /* background-image: linear-gradient(to top,red 0,yellow 50%,green 100%); */
+            /* background-image: linear-gradient(to bottom,red 0,yellow 50%,green 100%); */
+            /* background-image: linear-gradient(to right,red 0,yellow 50%,green 100%); */
+            /* background-image: linear-gradient(to left,red 0,yellow 50%,green 100%); */
+            /* to bottom left */
+            /* background-image: linear-gradient(to bottom left,red 0,yellow 50%,green 100%); */
+            /* 角度 deg */
+            /* 兼容性 */
+            background-color: #fff; /*都不兼容回退*/
+            background-image: linear-gradient(45deg ,red 0,yellow 50%,green 100%);
+            background-image: -webkit-linear-gradient(45deg ,red 0,yellow 50%,green 100%);
+            background-image: -moz-linear-gradient(45deg ,red 0,yellow 50%,green 100%);
+            background-image: -o-linear-gradient(45deg ,red 0,yellow 50%,green 100%);
+        }
+        .box2 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            /* 重复渐变 兼容性同上 */
+            background-image: repeating-linear-gradient(45deg ,red 0,yellow 20%);
+        }
+        .box3 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            /* 径向重复渐变 兼容性同上 */
+            background-image: repeating-radial-gradient(circle ,red 50%,yellow 100%);
+        }
+        .box1 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            /* 径向渐变  */
+            /* shape 形状 circle圆  ellipse椭圆(需要确定长轴和短轴) */
+            /* background-image: radial-gradient(shape 渐变半径 at position , color[percent], color[percent]); */
+            /* 坐标 position 可以通过像素 关键字center top bottom left right 百分比 %*/
+            /* background-image: radial-gradient(circle 100px at 100%, red 0, green 100%); */
+            /* background-image: radial-gradient(ellipse 100px 50px at center, red 10%,gold 30%, orange 50%,blue 100%); */
+            background-image: radial-gradient(circle  at center, red 10%,gold 30%, orange 50%,blue 100%)
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+    <div class="box2">
+
+    </div>
+    <div class="box3">
+
+    </div>
+    <div class="box1">
+
+    </div>
+</body>
+</html>

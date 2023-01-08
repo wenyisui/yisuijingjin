@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒模型</title>
+    <style type="text/css">
+        .box {
+            padding: 20px;
+            margin: 20px;
+            width: 200px;
+            height: 200px;
+            border: 10px solid #000;
+        }
+        /* div {
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        } */
+        textarea {
+            resize: vertical;
+        }
+
+        .text {
+            width: 200px;
+            height: 200px;
+            max-width: 800px;
+            overflow: auto;
+            border: 1px solid #000;
+            /* 块级元素 table 单元格 内联块元素， 
+            *  overflow 不等于默认值的时候生效
+            */
+            resize: both;
+        }
+    </style>
+</head>
+<body>
+    <!-- 盒子模型 (css-box, CSS Basic Box Model) -->
+    <!-- 
+        1, w3c 标准盒模型
+        2, ie6 混杂模式的盒模型 DTD (documents type determination 
+                                    documents type Definition)
+     -->
+     <!-- box-sizing:border-box/content-box -->
+     <!-- overflow-x | overflow-y:visible|hidden | scroll | auto
+          overflow-x，overflow-y只要定义了其中一个值，那么另一个值会由默认值的visable->auto
+      -->
+    <div class="box">
+
+    </div>
+    <textarea cols="30" rows="10">测试测试测试测试测试测试</textarea>
+    <!-- resize:none|both | horizontal水平 | vertical垂直-->
+    <div class="text">
+        测试测试测试测试测试测试
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>边框圆角</title>
+    <style type="text/css">
+         .box {
+            width: 200px;
+            height: 200px;
+            border: 20px solid #000;
+            box-sizing: border-box;
+            border-top: 20px solid red;
+            border-right: 20px solid yellow;
+            border-bottom-color: blue;
+            /* border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 50%; */
+            /* 50%相当于宽高的一半 */
+            border-top-left-radius: 100px 100px;
+            border-top-right-radius: 100px;
+            border-bottom-left-radius: 100px;
+            border-bottom-right-radius: 100px;
+            /* 复合写法宽高比 */
+         }
+         /* border-radius的写法 % / */
+
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+    <div class="wrap">
+        <div class="box">
+
+        </div>
+    </div>
+</body>
+</html>
