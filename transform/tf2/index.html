@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation动画</title>
+</head>
+<style type="text/css">
+    /* https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation-direction */
+    /* 三次贝塞尔曲线 cubic-bezier( <number [0,1]> , <number> , <number [0,1]> , <number> )  */
+    /* 生成速度曲线的函数 */
+    /* animation和transition的区别 */
+    /* 触发条件不一样：
+      1，transition主要是配合js用，没有办法设置循环的次数，需要借助js
+      2，animation和js的交互性不强
+      3，帧数不一样
+    */
+    /* 0% {
+
+        }
+        100% {
+
+        }
+        from {
+
+        }
+        to {
+
+        } */
+    @keyframes move {
+        0% {left: 0;top: 0;}
+        25% {left: 0px;top: 500px;}
+        50% {left: 500px;top: 500px;}
+        75% {left: 500px;top: 300px;}
+        100% {left: 600px;top: 0;}
+    }
+    @-webkit-keyframes move {
+        0% {left: 0;top: 0;}
+        25% {left: 0px;top: 500px;}
+        50% {left: 500px;top: 500px;}
+        75% {left: 500px;top: 300px;}
+        100% {left: 600px;top: 0;}
+    }
+    @-moz-keyframes move {
+        0% {left: 0;top: 0;}
+        25% {left: 0px;top: 500px;}
+        50% {left: 500px;top: 500px;}
+        75% {left: 500px;top: 300px;}
+        100% {left: 600px;top: 0;}
+    }
+    @-o-keyframes move {
+        0% {left: 0;top: 0;}
+        25% {left: 0px;top: 500px;}
+        50% {left: 500px;top: 500px;}
+        75% {left: 500px;top: 300px;}
+        100% {left: 600px;top: 0;}
+    }
+
+    .box {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+        animation-name: move;
+        animation-iteration-count: infinite;
+        animation-duration: 5s;
+
+        /* running paused  控制动画运行暂停*/
+        animation-play-state: running;
+ 
+        /* 
+           none  动画不会对动画等待和动画完成的元素产生样式的改变
+           backwards 在动画等待的时间段内，元素的样式的设置为第一帧的样式 
+           forwards 动画结束之后，元素的样式为最后一帧的样式 
+           both  backwards和forwards的结合 */
+        /* animation-fill-mode: backwards; */
+
+        /* animation-name: none;
+        animation-duration: 0s;
+        animation-timing-function: ease;
+        animation-delay: 0s;
+        animation-iteration-count: 1s;
+        animation-duration: normal;
+        animation-fill-mode: none;
+        animation-play-state: running; */
+        /* animation: move 5s linear 2s 2 reverse forwards;*/
+        /*兼容性
+        -webkit-animation: move 5s linear 2s 2 reverse forwards;
+        -moz-animation: move 5s linear 2s 2 reverse forwards;
+        -o-animation: move 5s linear 2s 2 reverse forwards; */
+
+        /* animation-name: move;
+        animation-timing-function: ease;
+        animation-duration: 2s;
+        animation-delay: 2s; */
+        /* infinite无数次 */
+        /* animation-iteration-count: 1; */
+        /* normal reverse alternate alternate-revese */
+        /* animation-direction: normal; */
+        /* animation: move 5s; */
+    }
+</style>
+
+<body>
+    <div class="box">
+
+    </div>
+    <button class="btn">button</button>
+    <script type="text/javascript">
+       var oBox=document.getElementsByClassName('box')[0],
+           oBtn=document.getElementsByClassName('btn')[0],
+           flag=false;
+
+           oBtn.addEventListener('click',function(){
+              if(!flag){
+                oBox.style.animationPlayState = 'paused';
+                flag=true;
+              }else{
+                oBox.style.animationPlayState = 'running';
+                flag=false;
+              }
+           },false)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform动画 transition过渡需要触发</title>
+    <style type="text/css">
+       .box {
+          position: relative;
+          top: 200px;
+          left: calc(50% - 150px);
+          width: 300px;
+          height: 300px;
+          padding: 50px;    
+          border: 1px solid #000;
+       }
+       .box::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        z-index: 9;
+        width: 400px;
+        height: 3px;
+        background-color: #000;
+       }
+       .box::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        z-index: 9;
+        width: 3px;
+        height: 400px;
+        background-color: #000;
+       }
+       .inner {
+         width: 100%;
+         height: 100%;
+         background-color: orange;
+         /* 平面的元素没有厚度 */
+         /* rotate */
+         /* rotate默认是Z轴 rotateZ rotateX rotateY*/
+         /* transform: rotateX(70deg); */
+         /* transform: rotate3d(0, 40, 0, 70deg); 指定特定的轴绕它进行旋转*/
+         /* transform: rotate3d(45, 45, 0, 70deg); */
+
+         /* scale 放大缩小 scaleZ(0)会消失*/
+         /* scaleX scaleY scaleZ scale3D*/
+         /* transform: scale(0.5, 1); */
+
+         /* skew倾斜 扭曲旋转 skew skewX skewY*/
+         /* transform: skewX(45deg); */
+
+         /* translate平移  translateX translateY translateZ translate3d*/
+         /* transform: rotate(50deg) translateX(100px) translateY(100px) ; 先旋转后平移*/
+         /* transform: translateX(100px) translateY(100px) rotate(50deg) ; 先平移后旋转*/
+         
+         /* transform-origin 更改圆点，旋转点 */
+         /* transform-origin:水平方向  垂直方向 Z轴px值; */
+         /* transform-origin: center center;
+         transform-origin: left center; 
+         transform-origin: 0% 100%;*/
+       }
+       .inner:hover {
+          /* transform: rotate(30deg);
+          transition-property: transform; 
+          transition-duration: 1s;  */
+          /* 三次贝塞尔曲线 cubic-bezier( <number [0,1]> , <number> , <number [0,1]> , <number> )  */
+          /* 生成速度曲线的函数 */
+          /* ease in  由慢到开始的过渡效果：cubic-bezier(0.42,0,1,1) */
+          /* linear 线性过渡方式 cubic-bezier(0,0,1,1)*/
+          /* ease out  由慢结束的过渡效果 cubic-bezier(0,0,0.58,1)*/
+          /* ease-in-out 由慢开始和慢结束的过渡效果 */
+          /* ease  慢速开始然后变快，慢速结束的过渡效果*/
+          /* transition-timing-function: cubic-bezier(0,0,0.58,1); */
+          /*transition-delay: 1s; CSS 的transition-delay属性规定了在过渡效果开始作用之前需要等待的时间*/
+
+          /* transition CSS 属性是
+           transition-property、transition-duration、transition-timing-function 和 transition-delay 的一个简写属性 (en-US)。 */
+           width: 200px;
+           height: 200px;
+           background-color: red;
+           transform: rotate(30deg);
+           /* transition: transform 2s, width 2s, height 2s, background-color 2s; */
+           /* transition: all 2s; 默认值是all*/
+           transition-property: transform, width, height;
+           transition-duration: 2s;
+       }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

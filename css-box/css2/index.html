@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹性盒子布局 flex box 父级容器属性</title>
+    <style type="text/css">
+        /* 主轴 交叉轴 */
+       div.box {
+         display: flex;
+         display: -webkit-box;  /*uc浏览器*/
+         display: -webkit-flex;
+         display: -ms-flexbox; /*IE10*/
+
+         width: 500px;
+         height: 500px;
+         border: 1px solid #000;
+         /* 父级容器的属性 */
+         /* row默认值|row-reverse | column | column-reverse */
+         flex-direction: row;
+         /* nowrap默认值 | wrap | wrap-reverse */
+         flex-wrap: nowrap;
+         /* flex-flow: flex-direction | flex-wrap; 这两个的简写 */
+         flex-flow: row nowrap;
+         /* flex-start | flex-end | center | space-between两端对齐 | space-around(flex item 两侧距离间距相等)   (主轴方向)*/
+         justify-content: flex-start;
+         /* flex-start | flex-end | center | baseline(文字的基线对齐) | stretch(不给高度占满整个高度)      (交叉轴方向) */
+         align-items: flex-start;
+         /* flex-start | flex-end | center | space-between | space-around | stretch(轴线占满整个交叉轴) */
+         align-content: flex-start;
+       }
+       .left,
+       .mid,
+       .right {
+         width: 100px;
+         height: 100px;
+         color: #fff;
+         font-size: 30px;
+         text-align: center;
+         line-height: 100px;
+       }
+       .blue {
+        /* order: 3; */
+        background-color: blue;
+       }
+       .red {
+        /* order: 2; */
+        background-color: red;
+       }
+       .orange {
+        /* order: 1; */
+        background-color: orange;
+        align-self: flex-end;
+       }
+       /* flexbox -> flexible box */
+       /* flex是一维布局 */
+       /* 
+        * flex 容器 (flex container) 父级元素
+        * flex 项目 (flex item)      子级元素 
+       */
+        
+       /* flex容器上面的属性 */
+       /* 
+        * flex-derection 
+        * flex-wrap 
+        * flex-flow 
+        * justify-content 
+        * align-items 
+        * align-content 
+        */
+
+        /* flex项目上面的属性 */
+        /* 
+         * flex-grow   放大的比例  空间剩余才会放大 计算方式先按分数平分，然后看flex-grow有几份，平分剩余的相对应的份数
+         * flex-shrink 缩小的比例  空间不足的话才会缩小 默认值flex-shrink:1;可以缩小
+         * flex-basis  伸缩基准值 在分配剩余空间之前，项目占据主轴的空间的计算值： 默认auto, flex-item的大小(了解就行)
+         * flex: flex-grow flex-shrink flex-basis; 默认值flex: 0 1 auto; flex:auto;是flex:1 1 auto的简写;
+                 flex: none;是flex:0 0 auto的简写;
+         * order       排列顺序
+         * align-self  单个项目的对齐方式  与align-items的值完全一样，多了个auto
+        */
+
+
+
+       /* CSS Grid Layout 二维布局 */
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="left blue">1</div>
+        <div class="mid red">2</div>
+        <div class="right orange">3</div>
+        <div class="left blue">1</div>
+        <div class="mid red">2</div>
+        <div class="right orange">3</div>
+        <div class="left blue">1</div>
+        <div class="mid red">2</div>
+        <div class="right orange">3</div>
+        <div class="left blue">1</div>
+        <div class="mid red">2</div>
+        <div class="right orange">3</div>
+    </div>
+</body>
+</html>
