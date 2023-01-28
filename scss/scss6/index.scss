@@ -1,0 +1,140 @@
+// 字符串函数
+// quote()函数给字符串添加引号
+// unquote() 不给字符串加引号
+// to-upper-case() 变大写
+// to-lower-case() 变小写
+
+
+// 数字函数
+// percentage() 转换成百分比
+// round() 四舍五入
+// ceil() 向上取整
+// floor() 向下取整
+// abs() 取绝对值
+// min() 取最小值
+// max() 取最大值
+// random() 取随机数
+
+
+//列表函数
+// length在命令行里面用看列表长度
+// nth($list,$n)在命令行里面用找到位置相对应的值 nth<10px 20px 30px, 1>
+// join<10px 20px,30px 40px> 对两个列表进行合并 第三个参数是用什么进行分割
+// 用空格进行分隔 join(10px 20px,30px 40px, space)
+// 用,进行分隔  join(10px,20px,30px,40px,comma)
+// append()在命令行里向后面添加元素 sppend(10px 20px, 30px)
+// zip()把一维转换成多维列表
+// zip(1px 2px 3px, solid dashed dotted, green blue red)
+// index 从1开始找下标 
+// index(1px solid #000000, 1px)  1
+
+
+// 判断函数
+// type-of() 判断类型
+// type-of(100) number  type-of(que) string number type-of(true) bool type-of(#fff) color
+// unit() 单位 unit(100) "" unit(100px) "px"
+// unitless() unitless(100px) false 有单位返回false unitless(100) true 没有单位返回true
+// unitless()应用场景
+@mixin set-position($left, $top) {
+    @if unitless($left) {
+        $left: 1px * $left;
+    }
+    @if unitless($top) {
+        $top: 1px * $top;
+    }
+    position: absolute;
+    left: $left;
+    top: $top;
+}
+.box {
+    @include set-position(50px, 100);
+}
+// compariable() 判断两个数加减 三元条件函数 if($condition, $if-true, $if-false) 第一个参数用来做判断
+// comparable(1px, 2px)  true
+// comparable(1px, 2em)  false
+// comparable(1px, 2in)  true
+// comparable(true, 1px, 2px)  1px
+// comparable(false, 1px, 2px)  2px
+// map 数据地图 一般是以键值对出现
+// map辅助函数
+// 1，map-get()  map-get($map, $key)
+// 2, map-has-key()  返回布尔值，有就true,没有就false
+// 3, map-keys()  map-keys($map)  返回map中的所有的$key
+// 4, map-values() map-values($map)  返回map中所有的键值
+// 5, map-merge()  合并成新的列表
+// 6, map-remove()  map-remove($map, $key) 删除map中的某个$key值
+// 7, keywords($args)  可以去动态的创建map
+// $map: {
+    //  $key1: value1,
+    //  $key2: value2,
+    //  $key3: value3
+// }
+// map案例
+// $color: (
+//     default: blue,
+//     primary: red
+// );
+// .box1 {
+//    background-color: map-get($color, "primary");
+// }
+$color: (
+    default: (
+        bgcolor: #fff,
+        text-color: #999
+    ),
+    primary: (
+        bgcolor: #000,
+        text-color: #666
+    )
+);
+.box2 {
+    background-color: map-get(map-get($color, "primary"), "bgcolor");
+}
+
+$theme-color: (
+    bgcolor: #fff,
+    text-color: #999
+);
+@if map-has-key($theme-color, bgcolor) {
+    .box3 {
+        background-color: map-get($theme-color, "bgcolor");
+    }
+}
+// @if map-has-key($theme-color, bg) {
+//     .box3 {
+//         background-color: map-get($theme-color, "bgcolor");
+//     }
+// }@else {
+//     @warn "No color found for bg in $theme-color map. Property omitted"
+// }
+// 自定义函数
+@function colors($color) {
+    @if not map-has-key($theme-color, $color) {
+        @warn "No color found for `#{$color}` in $theme-color-map. Property omitted."
+    }
+    @return map-get($theme-color, $color);
+}
+.box-1 {
+    color: colors(bgcolor);
+}
+$list: map-keys($theme-color);
+@each $name in $list {
+    .btn-#{$name} {
+        color: colors($name);
+    }
+}
+// 合并新的列表
+$typo: (
+    font-size: 20px
+);
+$newmap: map-merge($theme-color, $typo);
+
+//keywords($args)  可以去动态的创建map  @debug命令终端里面会输出
+@mixin map($args...) {
+    @debug keywords($args);
+}
+@include map(
+    $bgcolor: red,
+    $font-size: 14px,
+    $line-height: 10px
+)

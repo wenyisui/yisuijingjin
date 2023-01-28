@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPU硬件加速  响应式设计 em rem</title>
+    <!-- link引入 -->
+    <!-- <link rel="stylesheet" media="(max-width: 960px) and (min-width: 768px)" href="css/index.css"> -->
+    <style type="text/css">
+        /* 响应式@media三种引入语法规则 */
+        /* link 异步 (预加载的时候，就下载了，media语句通过后，才会执行) 
+        *  @import 在css范畴中，加载绕了一步
+        */
+        /*1：  <link rel="stylesheet" media="(max-width: 960px) and (min-width: 768px)" href="css/index.css"> */
+        /*2：  @import url(css/index.css) screen and (max-width: 960px) and (min-width: 768px); */
+
+        /* import url() */
+        @import url(css/index.css) screen and (max-width: 960px) and (min-width: 768px);
+        @import url(css/index1.css) screen and (max-width: 768px) and (min-width: 375px);
+        @import url(css/index2.css) screen and (max-width: 375px);
+        /*3：  @media screen and (max-width: 960px) and (min-width: 768px) {
+            body {
+                background-color: red;
+            }
+        } */
+      /* .wrap {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        border: 1px solid #000;
+        background-color: green;
+        transform-style: preserve-3d;
+        opacity: .5;
+      } */
+      /* .box {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         font-size: 40px;
+         
+         GPU硬件加速: 
+         animation: translate3d();
+         transform: translate3d(-50%,-50%,-1px);
+         background-color: orange;
+      } */
+    </style>
+</head>
+<body>
+    <!-- RWD  responsive Web Design: 网格布局(flex)+弹性图片(等技术)+媒体查询 -->
+    <!-- <div class="wrap">
+        <div class="box">this is grid</div>
+    </div> -->
+</body>
+</html>

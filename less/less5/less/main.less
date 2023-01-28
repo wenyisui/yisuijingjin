@@ -1,0 +1,38 @@
+body {
+    background-color: #111;
+    color: #ddd;
+    text-align: center;
+    padding-top: 20px;
+}
+
+// Triangle Mixin
+// @_意思是可以匹配任意值
+.triangle(@_, @width, @height, @color) {
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+}
+
+.triangle(top, @width, @height, @color) {
+    border-width: 0 @width / 2 @height @width / 2;
+    border-bottom-color: @color;
+    border-left-color: fade(@color, 0); // fade()函数，设置透明度
+    border-right-color: fade(@color, 0);
+}
+
+.triangle(bottom, @width, @height, @color) {
+    border-width: @height @width / 2 0 @width / 2;
+    border-top-color: @color;
+    border-left-color: fade(@color, 0); // fade()函数，设置透明度
+    border-right-color: fade(@color, 0);
+}
+// Triangles
+.triangle {
+    display: inline-block;
+    @width: 50px;
+    @height: 50px;
+
+    &.top{.triangle(top, @width, @height, red)}
+    &.bottom{.triangle(bottom,@width, @height, orange)}
+}

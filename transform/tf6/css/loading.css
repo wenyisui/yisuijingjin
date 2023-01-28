@@ -1,0 +1,215 @@
+/* first loading start */
+#loading-1 {
+    position: relative;
+    width: 310px;
+    height: 80px;
+    margin: 200px auto;
+    border-bottom: 3px solid #925FB1;
+}
+#loading-1 span.item {
+    position: absolute;
+    bottom: 0;
+    width: 50px;
+    height: 20px;
+    background-color: #925FB1;
+    animation-name: loading_one;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+#loading-1 span.item.item-1 {
+    left: 10px;
+    animation-delay: .2s;
+}
+#loading-1 span.item.item-2 {
+    left: 70px;
+    animation-delay: .4s;
+}
+#loading-1 span.item.item-3 {
+    left: 130px;
+    animation-delay: .6s;
+}
+#loading-1 span.item.item-4 {
+    left: 190px;
+    animation-delay: .8s;
+}
+#loading-1 span.item.item-5 {
+    left: 250px;
+    animation-delay: 1s;
+}
+
+@keyframes loading_one {
+    0% {
+        height: 20px;
+        background-color: #925FB1; 
+    }
+    100% {
+        height: 80px;
+        background-color: #5197D5;
+    }
+}
+/* first loading end */
+
+
+
+/* second loading start */
+#loading-2 {
+    position: relative;
+    width: 240px;
+    height: 80px;
+    margin: 50px auto;
+}
+#loading-2 span.item {
+    position: absolute;
+    top: 25px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #925FB1;
+    /* animation-duration: .8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate; */
+    /* animation: .8s infinite ease-in-out alternate; */
+}
+#loading-2 span.item-1,
+#loading-2 span.item-2 {
+    left: 25px;
+}
+#loading-2 span.item-3,
+#loading-2 span.item-4 {
+    right: 25px;
+}
+#loading-2 span.item-1 {
+    background-color: #2ecc71;
+    z-index: 1;
+    animation: loading-two-green; 
+    animation-duration: .8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    /* animation: .8s infinite ease-in-out alternate; */
+}
+#loading-2 span.item-2 {
+    background-color: #3498db;
+    animation: loading-two-blue;
+    animation-duration: .8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    /* animation: .8s infinite ease-in-out alternate; */
+
+    /* top: 40px;
+    left: 80px;
+    width: 40px;
+    height: 40px;
+    border-radius: 0;
+    background-color: #925FB1; */
+}
+#loading-2 span.item-3 {
+    background-color: #e74c3c;
+    z-index: 1;
+    animation: loading-two-red;
+    animation-duration: .8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    /* animation: .8s infinite ease-in-out alternate; */
+
+    /* top: 0;
+    right: 80px;
+    width: 40px;
+    height: 40px;
+    border-radius: 0;
+    background-color: #925FB1; */
+}
+#loading-2 span.item-4 {
+    background-color: #f1c40f;
+    animation: loading-two-yellow;
+    animation-duration: .8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    /* animation: .8s infinite ease-in-out alternate; */
+
+    /* top: 40px;
+    right: 80px;
+    width: 40px;
+    height: 40px;
+    border-radius: 0;
+    background-color: #925FB1; */
+}
+
+@keyframes loading-two-green {
+    0% {
+        top: 25px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #2ecc71;
+    }
+    100% {
+        top: 0;
+        left: 80px;
+        width: 40px;
+        height: 40px;
+        border-radius: 0;
+        background-color: #925FB1;
+        transform: rotate(-180deg);
+    }
+}
+@keyframes loading-two-blue {
+    0% {
+        top: 25px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #2ecc71;
+    }
+    100% {
+        top: 40px;
+        left: 80px;
+        width: 40px;
+        height: 40px;
+        border-radius: 0;
+        background-color: #925FB1;
+        transform: rotate(-180deg);
+    }
+}
+@keyframes loading-two-red {
+    0% {
+        top: 25px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #e74c3c;
+    }
+    100% {
+        top: 0;
+        right: 80px;
+        width: 40px;
+        height: 40px;
+        border-radius: 0;
+        background-color: #925FB1;
+        transform: rotate(180deg);
+    }
+}
+@keyframes loading-two-yellow {
+    0% {
+        top: 25px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #f1c40f;
+    }
+    100% {
+        top: 40px;
+        right: 80px;
+        width: 40px;
+        height: 40px;
+        border-radius: 0;
+        background-color: #925FB1;
+        transform: rotate(180deg);
+    }
+}
+/* second loading end */

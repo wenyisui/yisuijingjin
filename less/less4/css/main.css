@@ -1,0 +1,12 @@
+#one {
+  height: 500px;
+  width: 800px;
+  margin-bottom: 10px;
+  background: url("../images/a.jpg");
+}
+#two {
+  height: 500px;
+  width: 800px;
+  margin-bottom: 10px;
+  background: url("../images/homepage/b.jpg");
+}

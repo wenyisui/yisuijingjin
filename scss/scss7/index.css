@@ -1,0 +1,39 @@
+div {
+  height: 100px;
+  width: 100px;
+  background-color: purple;
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+  background-color: #cfc2d6;
+}
+
+.box-1 {
+  height: 100px;
+  width: 100px;
+  background-color: #c9d6c2;
+}
+
+.box-2 {
+  height: 100px;
+  width: 100px;
+  background-color: #a1b794;
+}
+
+.box-3 {
+  height: 150px;
+  width: 150px;
+  background-color: red;
+}
+
+body {
+  background-color: orange;
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    background-color: blue;
+  }
+}

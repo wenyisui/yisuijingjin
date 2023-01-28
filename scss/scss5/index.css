@@ -1,0 +1,29 @@
+.cat-icon {
+  background-image: url(/imgs/cat.png);
+  border: 1px solid white;
+  cursor: default;
+}
+
+.dog-icon {
+  background-image: url(/imgs/dog.png);
+  border: 1px solid brown;
+  cursor: pointer;
+}
+
+.butterfly-icon {
+  background-image: url(/imgs/butterfly.png);
+  border: 1px solid yellow;
+  cursor: move;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.2em;
+}

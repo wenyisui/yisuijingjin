@@ -1,0 +1,121 @@
+// $color: red;
+// // $ 变量声明符
+// // color 变量名称
+// // red   变量值
+
+// // 全局变量
+// .box {
+//     // 局部变量
+//     .wrap {
+//         $color:blue;
+//     }
+//     color: $color;
+// }
+
+// .box {
+//     $color: blue;
+//     color: $color;
+//     .inner-box {
+//         color: $color;
+//     }
+// }
+
+// $color: blue !default;
+
+// .box {
+//     color: $color;
+// }
+
+
+// @mixin 混合宏
+// @mixin box-shadow($shadow) {
+//   box-shadow: $shadow;
+//   -webkit-box-shadow: $shadow;
+//   -moz-box-shadow: $shadow;
+//   -o-box-shadow: $shadow;
+//   -ms-box-shadow: $shadow;
+// }
+// div {
+//     @include box-shadow(-5px 0 5px orange)
+// }
+// p {
+//     @include box-shadow(-5px 0 5px blue) 
+// }
+
+// @mixin 定义多个变量的方式  @mixin box-shadow($shadow...)
+// @mixin box-shadow($shadow...) {
+//     box-shadow: $shadow;
+//     -webkit-box-shadow: $shadow;
+//     -moz-box-shadow: $shadow;
+//     -o-box-shadow: $shadow;
+//     -ms-box-shadow: $shadow;
+//   }
+//   div {
+//       @include box-shadow(-5px 0 5px orange, 5px 0 5px red)
+//   }
+//   p {
+//       @include box-shadow(-5px 0 5px blue) 
+//   }
+
+// 属性名上使用变量
+// @mixin set-value($direction) {
+//     margin-#{$direction}: 10px;
+//     padding-#{$direction}: 10px;
+// }
+// .input-box {
+//     @include set-value(top);
+// }
+
+
+// 选择器使用变量
+// @mixin btn-bg-color($btnClass, $bgColor) {
+//    .btn-#{$btnClass} {
+//       background-color: $bgColor;
+//    }
+// }
+// @include btn-bg-color("success", #5cb85c);
+// @include btn-bg-color("warning", #f0ad4e);
+
+// 一个变量定义多个值
+// $divColor: orange green;
+// div {
+//     background-color: nth($divColor, 1);
+// }
+// $color: #333 #999;
+// p {
+//     background-color: nth($color, 1);
+// }
+// p:hover {
+//     background-color: nth($color, 2);
+// }
+// 伪类的嵌套
+$color: #333 #999;
+p {
+    background-color: nth($color, 1);
+    &:hover {
+        background-color: nth($color, 2);
+    }
+}
+
+//选择器的嵌套
+div {
+    width: 100%;
+    height: 300px;
+    ul{
+        height: 100%;
+        li{
+            width: 20%;
+            height: 100%;
+        }
+    }
+}
+
+// 属性的嵌套
+div {
+    background: {
+        image: url(../img/1.png);
+        repeat: no-repeat;
+        size: 50% 100%;
+        position: 0 0;
+    };
+}

@@ -1,0 +1,126 @@
+
+
+@keyframes bg_scale {
+    0%{transform: scale(1); opacity: 1;}
+    25%{transform: scale(1.3); opacity: .05;}
+    50%{transform: scale(1.6); opacity: .2;}
+    75%{transform: scale(1.9); opacity: .05;}
+    0%{transform: scale(2); opacity: 0;}
+}
+
+ul {
+    list-style: none;
+    width: 100%;
+}
+div {
+    box-sizing: border-box;
+}
+html,body {
+    background-color: #f0f0f0;
+}
+.clearfix::after {
+   content: "";
+   display: block;
+   clear: both;
+}
+
+.container {
+    margin: 0 auto;
+    width: 1206px;
+    height: 200px;
+}
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    float: left;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    box-shadow: 0 0 2px #000;
+    transition: border-bottom-width, border-bottom-color, height .8s;
+}
+.nav-item:hover {
+    height: 220px;
+    border-bottom-width: 5px;
+    border-bottom-color: #000;
+    transition: border-bottom-width, border-bottom-color, height .8s;
+}
+.nav-item.color1 {
+    background-color: #c36A28;
+}
+.nav-item.color2 {
+    background-color: #DD963c;
+}
+.nav-item.color3 {
+    background-color: #4290BA;
+}
+.nav-item.color4 {
+    background-color: #326A9D;
+}
+.nav-item.color5 {
+    background-color: #223645;
+}
+.nav-item.color6 {
+    background-color: #192835;
+}
+.nav-item .icon.color11 {
+    background-color: #C9793E;
+}
+.nav-item .icon.color22 {
+    background-color: #E0A150;
+}
+.nav-item .icon.color33 {
+    background-color: #559BC1;
+}
+.nav-item .icon.color44 {
+    background-color: #4779A7;
+}
+.nav-item .icon.color55 {
+    background-color: #394A58;
+}
+.nav-item .icon.color66 {
+    background-color: #303E4A;
+}
+
+.nav-item .icon {
+    position: absolute;
+    top: 20px;
+    left: 60px;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    font-size: 40px;
+    color: #fff;
+    opacity: .5;
+    border-radius: 50%;
+}
+.nav-item .icon::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+.nav-item:hover .icon::before {
+    animation: bg_scale 1s forwards;
+}
+
+.nav-item .content {
+    display: block;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    font-style: 25px;
+    color: #fff;
+}

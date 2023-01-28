@@ -1,0 +1,41 @@
+.panel {
+  border: 30px solid dodgerblue;
+  background-color: lightgreen;
+  margin: 10px;
+}
+.little-panel {
+  border: 30px solid dodgerblue;
+  background-color: lightgreen;
+  margin: 10px;
+  font-size: 12px;
+  padding: 5px;
+}
+.big-panel {
+  border: 30px solid dodgerblue;
+  background-color: lightgreen;
+  margin: 10px;
+  font-size: 20px;
+  padding: 20px;
+}
+#side-nav {
+  background-color: #000;
+}
+#side-nav a:link,
+#side-nav a:visited {
+  color: #fff;
+  display: block;
+  padding: 8px;
+}
+#side-nav a:hover {
+  color: #999;
+}
+#welcome-banner {
+  font-size: 32px;
+  background-color: lightgreen;
+}
+@media screen and (max-width: 768px) {
+  #welcome-banner {
+    font-size: 18px;
+    background-color: lightblue;
+  }
+}

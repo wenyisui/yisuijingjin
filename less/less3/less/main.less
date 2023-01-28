@@ -1,0 +1,20 @@
+@buttonBackground: #006699;
+@buttonColor: #fff;
+@buttonPadding: 5px;
+
+.button {
+    background-color: @buttonBackground;
+    @color: @buttonColor;
+    padding: @buttonPadding;
+    display: inline-block;
+}
+.jumno-button {
+    .button;
+    padding: @buttonPadding + 30;
+}
+
+.light-button {
+    .button {
+        background-color: @buttonBackground * 1.8;
+    }
+}

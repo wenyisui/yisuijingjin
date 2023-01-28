@@ -1,0 +1,18 @@
+// scss运算
+$width: 20px;
+.container {
+    width: 10px + 50px;
+}
+.cheng {
+    width: 10px * 2;
+}
+// 除法的三种写法
+.box {
+    width: (20px / 4);
+}
+.box1 {
+    width: 20px / 4 - 1px;
+}
+.box2 {
+    width: $width/2;
+}

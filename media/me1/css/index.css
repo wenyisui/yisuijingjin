@@ -1,0 +1,8 @@
+body {
+    background-color: yellow;
+}
+
+/* em  rem */
+
+/* em  相对于 父级元素
+rem 相对于html(根标签)的大小 */

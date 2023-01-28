@@ -1,0 +1,62 @@
+$textType: "large";
+// @if 判断语句写法
+// span {
+//     @if $textType=="large"{
+//         font-size: 40px;
+//     }@else if($textType=="middle"){
+//         font-size: 28px;
+//     }@else {
+//         font-size: 14px;
+//     }
+// }
+
+
+// @for循环语句的两种写法
+// @for $i from <start> through <end>
+// @for $i from <start> to <end>
+// to和through的区别: to不包含end
+// $     变量
+// start 起始值
+// end   结束值
+// @for $i from 1 through 3 {
+//     .item-#{$i} {
+//         width: 5px * $i;
+//     }
+// }
+
+
+// @while 语句
+// $i: 12;
+// @while $i>0 {
+//     .item-#{$i} {
+//         width: 5px * $i;
+//     }
+//     $i: $i - 1;
+// }
+
+
+// @each 遍历列表遍历映射
+// @each $var in <list,map>
+// $list: dog, cat, elephant;
+// @each $animal in $list {
+//     .#{$animal}-icon {
+//         background-image: url(/imgs/#{$animal}.png);
+//     }
+// }
+
+//@each遍历多个列表(list)
+@each $animal, $color, $cursor in (cat, white, default),
+                                  (dog, brown, pointer),
+                                  (butterfly, yellow, move){
+    .#{$animal}-icon {
+        background-image: url(/imgs/#{$animal}.png);
+        border: 1px solid $color;
+        cursor: $cursor;
+    }                              
+}
+// @each遍历map
+@each $header, $size in(h1: 2em, h2: 1.5em, h3: 1.2em) {
+    #{$header} {
+        font-size: $size;
+    }
+}

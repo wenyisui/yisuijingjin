@@ -1,0 +1,66 @@
+// mixin 混合宏
+// @mixin mixins {
+//     样式规则
+// }
+// @mixin transform($deg) {
+//     transform: rotate($deg);
+//     -webkit-transform: rotate($deg);
+//     -moz-transform: rotate($deg);    
+//     -o-transform: rotate($deg);
+//     -ms-transform: rotate($deg);
+// }
+// .box-1 {
+//     @include transform(20deg);
+// }
+// .box-2 {
+//     @include transform(20deg);
+// }
+// .box-3 {
+//     @include transform(20deg);
+// }
+// 缺点：没有解决css代码臃肿的问题
+
+// @extend 选择器继承
+// .box {
+//     width: 100px;
+//     height: 100px;
+// }
+// .box-1 {
+//     @extend .box;
+// }
+// .box2 {
+//     @extend .box;
+// }
+// .button {
+//     display: block;
+//     width: 100px;
+//     height: 30px;
+//     background-color: orange;
+// }
+// .middle .button {
+//     background-color: red;
+// }
+// .bottom .button {
+//     margin: 0 20px;
+// }
+// .inner-box a {
+//    @extend .button;
+// }
+//解决了代码臃肿
+// 选择器继承的缺点：
+// 1，.box设置的公共样式的类也会存在在最终的样式里面来
+// 2，会继承所有含有.button的，因此不能随便去继承
+
+// 占位符设置公共样式
+// 解决上面的问题2
+%box {
+    width: 100px;
+    height: 100px;
+}
+.box-1 {
+    @extend %box;
+}
+.box-2 {
+    @extend %box;
+    background-color: blue;
+}

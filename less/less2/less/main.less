@@ -1,0 +1,45 @@
+.panel {
+    border: 30px solid dodgerblue;
+    background-color: lightgreen;
+    margin: 10px;
+}
+
+.little-panel {
+    .panel;
+    font-size: 12px;
+    padding: 5px;
+}
+
+.big-panel {
+    .panel;
+    font-size: 20px;
+    padding: 20px;
+}
+
+// less嵌套
+#side-nav {
+    background-color: #000;
+    a:link, a:visited {
+        color: #fff;
+        display: block;
+        padding: 8px;
+    }
+    a:hover {
+        color: #999;
+    }
+}
+
+
+// less嵌套条件语句
+#welcome-banner {
+    font-size: 32px;
+    background-color: lightgreen;
+
+
+    @media screen {
+        @media (max-width:768px) {
+            font-size: 18px;
+            background-color: lightblue;
+        }
+    }
+}

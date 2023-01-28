@@ -1,0 +1,23 @@
+%listStyle {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+%clearfix {
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+%typography {
+    color: $color;
+    text: {
+       decoration: none;
+       align: center;
+    }
+    font: {
+        family: $fontFamily;
+        size: $fontSize;
+    }
+}

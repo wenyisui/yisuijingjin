@@ -1,0 +1,334 @@
+/* 插件说明 */
+
+/*
+ * default
+ * bg: #FFF; border:#CCC; color:#333;
+ * hover-bg: #e6e6e6; hover-border:#adadad; hover-color: #333;
+ * disabled: opacity: .65; cursor: not-allowed;
+
+ * primary
+ * bg: #337ab7; border: #2e6da4; color: #fff;
+ * hover-bg: #286090; hover-border: #204d74; hover-color: #fff;
+ * disabled: opacity: .65; cursor: not-allowed;
+
+ * success
+ * bg: #5cb85c; border: #4cae4c; color: #fff;
+ * hover-bg: #449b44; hover-border: #398439; hover-color: #fff;
+ * disabled: opacity: .65; cursor: not-allowed;
+
+ * secondary
+ * bg: #5bc0de; border: #46b8da; color: #fff;
+ * hover-bg: #31b0d5; hover-border: #269abc; hover-color: #fff;
+ * disabled: opacity: .65; cursor: not-allowed;
+
+ * warning
+ * bg: #f0ad4e; border: #eea236; color: #fff;
+ * hover-bg: #ec971f; hover-border: #d58512; hover-color: #fff;
+ * disabled: opacity: .65; cursor: not-allowed;
+
+ * danger
+ * bg: #d9534f; border: #d43f3a; color: #fff;
+ * hover-bg: #c9302c; hover-border: #ac2925; hover-color: #fff;
+ * disabled: opacity: .65; cursor: not-allowed;
+ */
+
+/* 
+ * size
+ * lg: 46px padding: 0 16px;
+ * dt: 34px padding: 0 12px;
+ * sm: 30px padding: 0 10px;
+ * xs: 22px padding: 0 5px;
+ *
+ * border-radius
+ * default: 3px;
+ * round: 
+ * lg-br: 23px; dt-br: 17px; sm-br: 15px; xs-br:11px;
+ *
+ * font-size: 
+ * lg: 18px; default: 14px; sm: 12px; xs: 12px;
+ */
+
+ @keyframes lf-btn-animation {
+    from {
+      width: 1px;
+      height: 1px;
+      opacity: 1;
+      filter: alpha(opacity=100);
+      transform: scale(0);
+      -webkit-transform: scale(0);
+      -moz-transform: scale(0);
+      -o-transform: scale(0);
+    }
+    to {
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        transform: scale(100);
+        -webkit-transform: scale(100);
+        -moz-transform: scale(100);
+        -o-transform: scale(100);
+    }
+ }
+ @-webkit-keyframes lf-btn-animation {
+    from {
+      width: 1px;
+      height: 1px;
+      opacity: 1;
+      filter: alpha(opacity=100);
+      transform: scale(0);
+      -webkit-transform: scale(0);
+      -moz-transform: scale(0);
+      -o-transform: scale(0);
+    }
+    to {
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        transform: scale(100);
+        -webkit-transform: scale(100);
+        -moz-transform: scale(100);
+        -o-transform: scale(100);
+    }
+ }
+ @-moz-keyframes lf-btn-animation {
+    from {
+      width: 1px;
+      height: 1px;
+      opacity: 1;
+      filter: alpha(opacity=100);
+      transform: scale(0);
+      -webkit-transform: scale(0);
+      -moz-transform: scale(0);
+      -o-transform: scale(0);
+    }
+    to {
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        transform: scale(100);
+        -webkit-transform: scale(100);
+        -moz-transform: scale(100);
+        -o-transform: scale(100);
+    }
+ }
+ @-o-keyframes lf-btn-animation {
+    from {
+      width: 1px;
+      height: 1px;
+      opacity: 1;
+      filter: alpha(opacity=100);
+      transform: scale(0);
+      -webkit-transform: scale(0);
+      -moz-transform: scale(0);
+      -o-transform: scale(0);
+    }
+    to {
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        transform: scale(100);
+        -webkit-transform: scale(100);
+        -moz-transform: scale(100);
+        -o-transform: scale(100);
+    }
+ }
+
+
+
+ /* 初始化BUTTON */
+ button {
+    display: inline-block;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    overflow: hidden;
+ }
+ button.lf-btn {
+    position: relative;
+    height: 34px;
+    color: #333;
+    font-size: 14px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    background-color: #fff;
+    padding: 0 12px;
+    cursor: pointer;
+
+ }
+ button.lf-btn::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    background-color: #fff;
+    opacity: 1;
+    filter: alpha(opacity=100);
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+ }
+ button.lf-btn:disabled {
+    opacity: .65;
+    filter: alpha(opacity=65);
+    cursor: not-allowed;
+ }
+ button.lf-btn:not([disabled]):hover {
+   border-color: #adadad;
+   background-color: #e6e6e6;
+ }
+
+
+ /* 聚焦样式 */
+ button.lf-btn:not([disabled]):focus::before {
+    animation: lf-btn-animation .8s;
+    -webkit-animation: lf-btn-animation .8s;
+    -moz-animation: lf-btn-animation .8s;
+    -o-animation: lf-btn-animation .8s;
+ }
+
+
+
+ /* 按钮大小相关类 */
+ /* 设置大按钮 */
+ button.lf-btn.btn-lg {
+    height: 46px;
+    font-size: 18px;
+    padding: 0 16px;
+ }
+
+ /* 设置小按钮 */
+ button.lf-btn.btn-sm {
+    height: 30px;
+    font-size: 12px;
+    padding: 0 10px;
+ }
+
+ /* 设置特小按钮 */
+ button.lf-btn.btn-xs {
+    height: 22px;
+    font-size: 12px;
+    padding: 0 5px;
+ }
+
+ 
+ /* 设置圆角 */
+ /* 设置大按钮的圆角 */
+ button.lf-btn.btn-lg.btn-br {
+    border-radius: 23px;
+    -webkit-border-radius: 23px;
+    -moz-border-radius: 23px;
+    -ms-border-radius: 23px;
+    -o-border-radius: 23px;
+ }
+
+ /* 设置默认按钮圆角 */
+ button.lf-btn.btn-br {
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+ }
+ /* 设置小按钮的圆角 */
+ button.lf-btn.btn-sm.btn-sm {
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+ }
+
+ /* 设置特小圆角 */
+ button.lf-btn.btn-xs.btn-xs {
+    border-radius: 11px;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    -ms-border-radius: 11px;
+    -o-border-radius: 11px;
+ }
+
+ /* 设置default样式 */
+ button.lf-btn.btn-default {
+    color: #333;
+    border-color: #CCC;
+    background-color: #fff;
+ }
+
+ button.lf-btn.btn-default:not([disabled]):hover {
+    border-color: #adadad;
+    background-color: #e6e6e6;
+ }
+
+ /* 设置primary样式 */
+ button.lf-btn.btn-primary {
+    color: #fff;
+    border-color: #2e6da4;
+    background-color: #337ab7;
+ }
+
+ button.lf-btn.btn-primary:not([disabled]):hover {
+    border-color: #204d74;
+    background-color: #286090;
+ }
+
+ /* 设置success样式 */
+ button.lf-btn.btn-success {
+    color: #fff;
+    border-color: #4cae4c;
+    background-color: #5cb85c;
+ }
+
+ button.lf-btn.btn-success:not([disabled]):hover {
+    border-color: #398439;
+    background-color: #449b44;
+ }
+
+ /* 设置secondary样式 */
+ button.lf-btn.btn-secondary{
+    color: #fff;
+    border-color: #46b8da;
+    background-color: #5bc0de;
+ }
+
+ button.lf-btn.btn-secondary:not([disabled]):hover {
+    border-color: #269abc;
+    background-color: #31b0d5;
+ }
+
+ /* 设置warning样式 */
+ button.lf-btn.btn-warning{
+    color: #fff;
+    border-color: #eea236;
+    background-color: #f0ad4e;
+ }
+
+ button.lf-btn.btn-warning:not([disabled]):hover {
+    border-color: #d58512;
+    background-color: #ec971f;
+ }
+
+ /* 设置danger样式 */
+ button.lf-btn.btn-danger{
+    color: #fff;
+    border-color: #d43f3a;
+    background-color: #d9534f;
+ }
+
+ button.lf-btn.btn-danger:not([disabled]):hover {
+    border-color: #ac2925;
+    background-color: #c9302c;
+ }

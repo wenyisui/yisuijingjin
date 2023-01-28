@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>骰子</title>
+    <style type="text/css">
+      @keyframes rotate {
+         from {
+            transform: rotateX(-20deg) rotateY(-20deg) scale3d(1,1,1);
+            left: 0;
+         }
+         to {
+            transform: rotateX(340deg) rotateY(340deg) scale3d(.5,.5,.5);
+            left: 1200px;
+         }
+      }
+       .cube {
+        position: relative;
+        margin-top: 200px;
+        margin-left: 200px;
+        width: 300px;
+        height: 300px;
+        border: 1px solid #000;
+        transform: rotateX(-20deg) rotateY(-20deg);
+        transform-style: preserve-3d;
+        animation: rotate 3s infinite alternate;
+       }
+       .cube .face {
+         position: absolute;
+         left: 0;
+         top: 0;
+         width: 300px;
+         height: 300px;
+         text-align: center;
+         line-height: 300px;
+         font-size: 100px;
+         color: #fff;
+         opacity: .7;
+       }
+       .cube .face.face-1 {
+         background-color: red;
+         transform: rotateX(90deg) translateZ(150px);
+       }
+       .cube .face.face-2 {
+         background-color: orange;
+         transform: rotateX(-90deg) translateZ(150px);
+       }
+       .cube .face.face-3 {
+         background-color: purple;
+         transform: rotateY(90deg) translateZ(150px);
+       }
+       .cube .face.face-4 {
+         background-color: blue;
+         transform: rotateY(-90deg) translateZ(150px);
+       }
+       .cube .face.face-5 {
+         background-color: pink;
+         transform: translateZ(150px);
+       }
+       .cube .face.face-6 {
+         background-color: green;
+         transform: translateZ(-150px);
+       }
+    </style>
+</head>
+<body>
+    <!-- div.cube>div.face.face-${$}*6 -->
+    <div class="cube">
+        <div class="face face-1">1</div>
+        <div class="face face-2">2</div>
+        <div class="face face-3">3</div>
+        <div class="face face-4">4</div>
+        <div class="face face-5">5</div>
+        <div class="face face-6">6</div>
+    </div>
+</body>
+</html>

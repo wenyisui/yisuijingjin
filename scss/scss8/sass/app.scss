@@ -1,0 +1,50 @@
+@import 'helps/_variables';
+@import 'helps/_helpers';
+@import 'helps/_mixins';
+.menu {
+    width: $width;
+    @extend %listStyle;
+    @extend %clearfix;
+    margin: 50px auto;
+    //width: fit-content;  相当于告诉浏览器宽度是由里面的内容来决定的
+    @include fit-content; 
+}
+.menu li{
+    position: relative;
+    float: left;
+    background-color: $bgColor;
+}
+.menu .menu-item {
+    @include skewX(20deg);
+}
+.menu li:hover {
+    background-color: $hoverBgColor;
+}
+.menu .menu-item a {
+    display: block;
+    padding: 16px 32px;
+    @extend %typography;
+    @include skewX(-20deg);
+}
+.menu li .dropdown-menu {
+    @extend %listStyle;
+    width: $width / 4;
+    position: absolute;
+    top: 52px;
+    left: 50%;
+    margin-left: -63px;
+}
+.menu .menu-item .dropdown-menu li {
+    width: 100%;
+    opacity: 0;
+    visibility: visible;
+}
+.menu .menu-item:hover .dropdown-menu li {
+    opacity: 1;
+    visibility: visible;
+
+    @include transition(all .4s ease)
+}
+.menu li .dropdown-menu li a {
+    padding: 16px 16px;
+}

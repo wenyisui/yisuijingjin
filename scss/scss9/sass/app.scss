@@ -1,0 +1,36 @@
+$colors1: #FFB6C1, #9932CC, #4169E1, #F0FFFF, #F5DEB3;
+$colors2: #FFA07A, #b22222, #008000, #483D8B, #FF00FF;
+$num: 100;
+
+body {
+    background-color: #001525;
+}
+
+@for $i from 1 through $num {
+    $some: random($num);
+    .dot:nth-of-type(#{$i}) {
+        position: absolute;
+        top: random(300) + px;
+        left: random(800) + px;
+        display: block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: nth($colors1, random(length($colors1)));
+        opacity: random(100) / 100;
+        animation: jump#{$i} 3s infinite ease-out;
+        @if $some>($num / 2) {
+            animation-delay: random(3000) + ms;
+        }
+    }
+}
+
+@for $i from 1 through $num {
+    @keyframes jump#{$i} {
+        50% {
+            transform: translateX(random(1200) + px) translateY(random(600) + px) scale(1.5) rotateX(180deg) rotateY(-180deg);
+            border-radius: 0;
+            background-color: nth($colors2, random(length($colors2)));
+        }
+    }
+}

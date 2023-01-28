@@ -1,0 +1,26 @@
+// 变量运算
+// $content-width: 960px;
+// $sidebar-width: 100px;
+// $gutter: 30px;
+
+// .container {
+//     width: $content-width + $sidebar-width + $gutter;
+// }
+
+
+// 数值的运算
+// .box {
+//     width: (10px + 20px) * 2;
+// }
+
+
+// 颜色的运算 三段分别单独进行计算 (十六进制)
+// .color {
+//     color: #445566 + #112233;
+// }
+
+
+// 字符串运算
+div {
+    cursor: e + -resize;
+}

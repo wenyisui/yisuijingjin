@@ -1,0 +1,88 @@
+@import '_variables.scss';
+// 颜色函数
+// RGB
+// HSL
+// Opacity
+// R红色 G绿色 B蓝色
+
+
+// RGB函数
+// RGB 颜色模型 任何一种颜色都是有红(Red).绿(Green).蓝(Blue)三原色以不同比例相加而成的
+// red($color)
+// green($color)
+// blue($color)
+// mix($color-1,$color-2,[$weight]) 把颜色混合
+div {
+    height: 100px;
+    width: 100px;
+    // background-color: mix(red, blue, 50%); 默认比例50% 比例是设置的第一个颜色所占的比例
+    background-color: mix(red, blue);
+}
+
+
+// HSL 函数 色彩空间 更加直观的去表达一个颜色
+// H Hue 色相: 色彩的基本属性 颜色名称 紫色 青色 品红
+// S Saturation 饱和度: 色彩的纯度 饱和越高色彩越纯越浓   饱和度越低, 色彩变灰变淡
+// L Lightness 亮度: 色彩的明暗程度  亮度值越高色彩越白  亮度值越低色彩越黑
+// 色相 饱和度 亮度 三个属性整合到圆柱里 HSL色彩空间模型
+// Hue值：圆环上的度数 0-360度
+// Saturation值：离中轴的距离  0-100%
+// Lightness：颜色高度
+
+//adjust-hue($color) 创建一个新颜色 色相值
+// ligthen() 属性 0-1之间  一般取值3%-20%之间 值越大越白
+// darken() 属性  0-1之间  一般取值3%-20%之间  值越大越黑
+// saturate() 属性 0-1之间  颜色变得更加饱和
+// desaturate() 属性 0-1之间  值越大越灰
+// grayscale()相当于把desaturate()的值调到100%
+// complement() 补充色 相当于 adjust-hue(#c9d6c2, 180deg)
+// invert() 红绿蓝值都返回为相反值 
+
+
+// Opacity函数 控制元素的透明度
+// opacity(rgba(100, 100, 100, .3), .5)    rgba(100, 100, 100, .8)
+// transparentize()/fade-out() 让颜色更加透明 也就是会对透明度做一个减法
+// transparentize(rgba(100, 100, 100, .5), .2)   rgba(100, 100, 100, .3)
+// fade-out(rgba(100, 100, 100, .5), .3)    rgba(100, 100, 100, .2)
+.box {
+    height: 100px;
+    width: 100px;
+    // background-color: hsl(100, 20%, 80%);
+    // background-color: hsla(100, 20%, 80%, .3);
+    // adjust-hue($color)属性 创建一个新颜色 色相值 
+    background-color: adjust-hue(#c9d6c2, 180deg);
+}
+.box-1 {
+    height: 100px;
+    width: 100px;
+    background-color: #c9d6c2;
+}
+.box-2 {
+    height: 100px;
+    width: 100px;
+    // background-color: lighten(#c9d6c2, 5%);
+    background-color: darken(#c9d6c2, 15%);
+}
+
+// @规则  sass支持所有的CSS3规则
+// 1， @import  sass会自动找具有.scss和.sass拓展名的同名文件
+// 1.1，如果有一个scss文件活sass文件需要引入，又不希望它被编译成CSS文件，前面加_
+// @import '_variables.scss';
+.box-3 {
+    height: 150px;
+    width: 150px;
+    background-color: $color;
+}
+// 2, @media 媒体查询
+body {
+    background-color: orange;
+}
+@media screen and (max-width: 1000px) {
+    body {
+        background-color: blue;
+    }
+}
+// 3, @extend %placeholder @at-root跳出根元素 @debug  @error   @warn
+@debug 'There is a bug in your program';
+@error 'There is a bug in your program';
+@warn 'There is a bug in your program'

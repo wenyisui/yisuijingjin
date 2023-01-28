@@ -1,0 +1,56 @@
+$colors: #A32D70, #6E32A0, #DBD3D9, #D64369, #7A7DE0;
+$num: 25;
+body {
+    background-color: #20181E;
+}
+@for $i from 1 through $num {
+    .bubble:nth-of-type(#{$i}) {
+        position: absolute;
+        top: random(360) + px;
+        left: random(800) + px;
+        display: block;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background-color: mix(nth($colors, random(length($colors))), nth($colors, random(length($colors))),60%);
+        box-shadow: inset 3px 3px 60px 6px #A32D70;
+        opacity: .3;
+        animation-name: float#{$i};
+        animation-duration: 8s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            right: 15px;
+            display: block;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border-right: 10px solid #fff;
+            opacity: .06;
+        }
+    }
+}
+
+@for $i from 1 through $num {
+    $movex: random(500) - 200 + px;
+    $movex2: random(200) - 50 + px;
+
+    $movey: random(200) - 50 + PX;
+    $movey2: random(400) - 100 +px;
+
+    @keyframes float#{$i} {
+        40% {
+            transform: translateX($movex) translateY($movey);
+        }
+        60% {
+            background-color: desaturate(nth($colors, length($colors)), 50%);
+        }
+        80% {
+            transform: translateX($movex2) translateY($movey2);
+        }
+    }
+}
